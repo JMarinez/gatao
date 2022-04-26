@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
-
+import 'package:gatao/src/models/expense_manager.dart';
+import 'package:provider/provider.dart';
 import 'home.dart';
 
 void main() {
-  runApp(const GataoApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => ExpenseManager()),
+      ],
+      child: const GataoApp(),
+    ),
+  );
 }
 
 class GataoApp extends StatelessWidget {

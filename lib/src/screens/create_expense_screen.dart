@@ -5,11 +5,32 @@ class CreateExpenseScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text(
-        'Create Expense',
-        style: TextStyle(fontSize: 28.0),
+    return Scaffold(
+      appBar: AppBar(
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.check),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
+        ],
+      ),
+      body: Column(
+        children: [
+          Text('data'),
+          Text('data'),
+          Text('data'),
+        ],
       ),
     );
+  }
+
+  Widget _buildLabelField() {
+    return TextField();
+  }
+
+  Widget _buildAmountField() {
+    return TextField();
   }
 }
