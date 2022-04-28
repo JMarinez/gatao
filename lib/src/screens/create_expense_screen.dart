@@ -1,12 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:uuid/uuid.dart';
 
-import 'package:gatao/src/components/expense_card.dart';
 import 'package:gatao/src/models/expense.dart';
 
 class CreateExpenseScreen extends StatefulWidget {
   final Function(Expense) onCreate;
-  const CreateExpenseScreen({Key? key, required this.onCreate})
-      : super(key: key);
+  final Function(Expense) onUpdate;
+  final bool isUpdating;
+  final Expense? originalItem;
+  const CreateExpenseScreen({
+    Key? key,
+    required this.onCreate,
+    required this.onUpdate,
+    this.originalItem,
+  })  : isUpdating = (originalItem != null),
+        super(key: key);
 
   @override
   State<CreateExpenseScreen> createState() => _CreateExpenseScreenState();
@@ -46,10 +54,16 @@ class _CreateExpenseScreenState extends State<CreateExpenseScreen> {
           IconButton(
             icon: const Icon(Icons.check),
             onPressed: () {
-              final _expense =
-                  Expense(label: label, amount: int.parse(amount).toDouble());
+              final _expense = Expense(
+                  id: widget.originalItem?.id ?? const Uuid().v1(),
+                  label: label,
+                  amount: int.parse(amount).toDouble());
 
-              widget.onCreate(_expense);
+              if (widget.isUpdating) {
+                widget.onUpdate(_expense);
+              } else {
+                widget.onCreate(_expense);
+              }
             },
           ),
         ],

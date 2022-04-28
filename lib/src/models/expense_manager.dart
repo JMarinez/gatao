@@ -14,6 +14,12 @@ class ExpenseManager extends ChangeNotifier {
     notifyListeners();
   }
 
+  void updateExpense(Expense expense, int index) {
+    _expenses[index] = expense;
+
+    notifyListeners();
+  }
+
   void deleteAllExpense(Expense expense) {
     _expenses.clear();
 

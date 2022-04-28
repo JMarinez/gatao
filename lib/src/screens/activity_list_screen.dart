@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gatao/src/components/expense_card.dart';
 import 'package:gatao/src/models/expense_manager.dart';
+import 'package:gatao/src/screens/create_expense_screen.dart';
 
 class ActivityListScreen extends StatelessWidget {
   final ExpenseManager manager;
@@ -17,7 +18,23 @@ class ActivityListScreen extends StatelessWidget {
       },
       itemBuilder: ((context, index) {
         final expense = expenses[index];
-        return ExpenseCard(label: expense.label, amount: expense.amount);
+        return GestureDetector(
+          child: ExpenseCard(label: expense.label, amount: expense.amount),
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => CreateExpenseScreen(
+                          originalItem: expense,
+                          onCreate: (expense) {},
+                          onUpdate: (expense) {
+                            manager.updateExpense(expense, index);
+
+                            Navigator.pop(context);
+                          },
+                        )));
+          },
+        );
       }),
     );
   }

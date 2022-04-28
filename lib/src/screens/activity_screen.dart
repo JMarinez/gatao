@@ -14,7 +14,6 @@ class ActivityScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: SizedBox(
-          height: 500,
           child: _buildActivityBody(),
         ),
       ),
@@ -23,15 +22,18 @@ class ActivityScreen extends StatelessWidget {
         onPressed: () {
           final manager = Provider.of<ExpenseManager>(context, listen: false);
           Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => CreateExpenseScreen(
-                        onCreate: (expense) {
-                          manager.addExpense(expense);
+            context,
+            MaterialPageRoute(
+              builder: (context) => CreateExpenseScreen(
+                onCreate: (expense) {
+                  manager.addExpense(expense);
 
-                          Navigator.pop(context);
-                        },
-                      )));
+                  Navigator.pop(context);
+                },
+                onUpdate: (expense) {},
+              ),
+            ),
+          );
         },
       ),
     );
