@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:gatao/src/models/expense.dart';
 
 class ExpenseCard extends StatelessWidget {
-  final Expense expense;
+  final String label;
+  final double amount;
 
   const ExpenseCard({
     Key? key,
-    required this.expense,
+    required this.label,
+    required this.amount,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: Text(expense.label),
-      subtitle: Text('${expense.amountSpent}'),
+      title: Text(label),
+      subtitle: Text(amount.toString()),
     );
   }
 }

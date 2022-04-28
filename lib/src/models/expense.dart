@@ -1,6 +1,9 @@
 class Expense {
-  String label;
-  double amountSpent;
+  final String label;
+  final double amount;
 
-  Expense(this.label, this.amountSpent);
+  Expense({
+    required this.label,
+    required this.amount,
+  });
 }

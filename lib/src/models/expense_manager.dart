@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:gatao/src/models/expense.dart';
 
 class ExpenseManager extends ChangeNotifier {
-  List<Expense> _expenses = [];
+  final _expenses = <Expense>[];
 
   UnmodifiableListView get expenses => UnmodifiableListView(_expenses);
 

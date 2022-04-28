@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+
+import 'package:gatao/src/components/expense_card.dart';
 import 'package:gatao/src/models/expense.dart';
 
 class CreateExpenseScreen extends StatefulWidget {
-  const CreateExpenseScreen({Key? key}) : super(key: key);
+  final Function(Expense) onCreate;
+  const CreateExpenseScreen({Key? key, required this.onCreate})
+      : super(key: key);
 
   @override
   State<CreateExpenseScreen> createState() => _CreateExpenseScreenState();
@@ -28,6 +32,13 @@ class _CreateExpenseScreenState extends State<CreateExpenseScreen> {
   }
 
   @override
+  void dispose() {
+    labelController.dispose();
+    amountController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -35,9 +46,10 @@ class _CreateExpenseScreenState extends State<CreateExpenseScreen> {
           IconButton(
             icon: const Icon(Icons.check),
             onPressed: () {
-              final _expense = Expense(label, int.parse(amount).toDouble());
+              final _expense =
+                  Expense(label: label, amount: int.parse(amount).toDouble());
 
-              Navigator.pop(context);
+              widget.onCreate(_expense);
             },
           ),
         ],
@@ -49,6 +61,7 @@ class _CreateExpenseScreenState extends State<CreateExpenseScreen> {
             _buildLabelField(),
             const SizedBox(height: 10.0),
             _buildAmountField(),
+            const SizedBox(height: 10.0),
           ],
         ),
       ),

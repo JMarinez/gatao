@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gatao/src/screens/activity_list_screen.dart';
 import 'package:provider/provider.dart';
 
 import 'package:gatao/src/screens/create_expense_screen.dart';
@@ -11,14 +12,26 @@ class ActivityScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _buildActivityBody(),
+      body: SafeArea(
+        child: SizedBox(
+          height: 500,
+          child: _buildActivityBody(),
+        ),
+      ),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
         onPressed: () {
+          final manager = Provider.of<ExpenseManager>(context, listen: false);
           Navigator.push(
               context,
               MaterialPageRoute(
-                  builder: (context) => const CreateExpenseScreen()));
+                  builder: (context) => CreateExpenseScreen(
+                        onCreate: (expense) {
+                          manager.addExpense(expense);
+
+                          Navigator.pop(context);
+                        },
+                      )));
         },
       ),
     );
@@ -27,7 +40,9 @@ class ActivityScreen extends StatelessWidget {
   Widget _buildActivityBody() {
     return Consumer<ExpenseManager>(builder: (context, manager, child) {
       if (manager.expenses.isNotEmpty) {
-        return Container();
+        return ActivityListScreen(
+          manager: manager,
+        );
       } else {
         return Column(
           mainAxisAlignment: MainAxisAlignment.center,
