@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gatao/src/models/expense.dart';
 
 class CreateExpenseScreen extends StatefulWidget {
   const CreateExpenseScreen({Key? key}) : super(key: key);
@@ -11,17 +12,17 @@ class _CreateExpenseScreenState extends State<CreateExpenseScreen> {
   final labelController = TextEditingController();
   final amountController = TextEditingController();
 
-  String _label = '';
-  String _amount = '';
+  String label = '';
+  String amount = '';
 
   @override
   void initState() {
     labelController.addListener(() {
-      _label = labelController.text;
+      label = labelController.text;
     });
 
     amountController.addListener(() {
-      _amount = amountController.text;
+      amount = amountController.text;
     });
     super.initState();
   }
@@ -34,6 +35,8 @@ class _CreateExpenseScreenState extends State<CreateExpenseScreen> {
           IconButton(
             icon: const Icon(Icons.check),
             onPressed: () {
+              final _expense = Expense(label, int.parse(amount).toDouble());
+
               Navigator.pop(context);
             },
           ),
