@@ -1,7 +1,7 @@
 class Expense {
   final String id;
   final String label;
-  final double amount;
+  final String amount;
 
   Expense({
     required this.id,
@@ -12,7 +12,7 @@ class Expense {
   Expense copyWith({
     String? id,
     String? label,
-    double? amount,
+    String? amount,
   }) {
     return Expense(
         id: id ?? this.id,

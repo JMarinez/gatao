@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class ExpenseCard extends StatelessWidget {
   final String label;
-  final double amount;
+  final String amount;
 
   const ExpenseCard({
     Key? key,
@@ -14,7 +14,7 @@ class ExpenseCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       title: Text(label),
-      subtitle: Text(amount.toString()),
+      subtitle: Text(amount),
     );
   }
 }

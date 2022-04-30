@@ -29,13 +29,25 @@ class _CreateExpenseScreenState extends State<CreateExpenseScreen> {
 
   @override
   void initState() {
+    final originalName = widget.originalItem;
+
+    if (originalName != null) {
+      labelController.text = originalName.label;
+      amountController.text = originalName.amount;
+    }
+
     labelController.addListener(() {
-      label = labelController.text;
+      setState(() {
+        label = labelController.text;
+      });
     });
 
     amountController.addListener(() {
-      amount = amountController.text;
+      setState(() {
+        amount = amountController.text;
+      });
     });
+
     super.initState();
   }
 
@@ -55,9 +67,10 @@ class _CreateExpenseScreenState extends State<CreateExpenseScreen> {
             icon: const Icon(Icons.check),
             onPressed: () {
               final _expense = Expense(
-                  id: widget.originalItem?.id ?? const Uuid().v1(),
-                  label: label,
-                  amount: int.parse(amount).toDouble());
+                id: widget.originalItem?.id ?? const Uuid().v1(),
+                label: label,
+                amount: amount,
+              );
 
               if (widget.isUpdating) {
                 widget.onUpdate(_expense);
