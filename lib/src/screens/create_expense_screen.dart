@@ -29,11 +29,13 @@ class _CreateExpenseScreenState extends State<CreateExpenseScreen> {
 
   @override
   void initState() {
-    final originalName = widget.originalItem;
+    final originalItem = widget.originalItem;
 
-    if (originalName != null) {
-      labelController.text = originalName.label;
-      amountController.text = originalName.amount;
+    if (originalItem != null) {
+      labelController.text = originalItem.label;
+      label = originalItem.label;
+      amount = originalItem.amount;
+      amountController.text = originalItem.amount;
     }
 
     labelController.addListener(() {
