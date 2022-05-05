@@ -14,7 +14,7 @@ class ActivityListScreen extends StatelessWidget {
     return ListView.separated(
       itemCount: manager.expenses.length,
       separatorBuilder: (context, index) {
-        return const SizedBox(height: 16.0);
+        return const SizedBox(height: 12.0);
       },
       itemBuilder: ((context, index) {
         final expense = expenses[index];
@@ -22,17 +22,19 @@ class ActivityListScreen extends StatelessWidget {
           child: ExpenseCard(label: expense.label, amount: expense.amount),
           onTap: () {
             Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => CreateExpenseScreen(
-                          originalItem: expense,
-                          onCreate: (expense) {},
-                          onUpdate: (expense) {
-                            manager.updateExpense(expense, index);
+              context,
+              MaterialPageRoute(
+                builder: (context) => CreateExpenseScreen(
+                  originalItem: expense,
+                  onCreate: (expense) {},
+                  onUpdate: (expense) {
+                    manager.updateExpense(expense, index);
 
-                            Navigator.pop(context);
-                          },
-                        )));
+                    Navigator.pop(context);
+                  },
+                ),
+              ),
+            );
           },
         );
       }),
