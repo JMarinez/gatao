@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:gatao/src/screens/activity_list_screen.dart';
 import 'package:provider/provider.dart';
@@ -27,6 +29,8 @@ class ActivityScreen extends StatelessWidget {
               builder: (context) => CreateExpenseScreen(
                 onCreate: (expense) {
                   manager.addExpense(expense);
+
+                  manager.updateTotalSpent(double.parse(expense.amount));
 
                   Navigator.pop(context);
                 },
