@@ -22,11 +22,14 @@ class ExpenseManager extends ChangeNotifier {
   void addExpense(Expense expense) {
     _expenses.add(expense);
     _totalSpent = _totalSpent + double.parse(expense.amount);
-    print(_totalSpent);
 
-    if (double.parse(expense.amount) * 0.8 <= _expenseLimit) {
+    if (_totalSpent >= _expenseLimit * 0.8) {
       isReachingLimit = true;
+    } else {
+      isReachingLimit = false;
     }
+
+    print(isReachingLimit);
 
     notifyListeners();
   }
@@ -39,7 +42,14 @@ class ExpenseManager extends ChangeNotifier {
     _totalSpent = _totalSpent - oldAmount;
     //* Adding new expense amount
     _totalSpent = _totalSpent + double.parse(expense.amount);
-    print(_totalSpent);
+
+    if (_totalSpent >= _expenseLimit * 0.8) {
+      isReachingLimit = true;
+    } else {
+      isReachingLimit = false;
+    }
+
+    print(isReachingLimit);
 
     notifyListeners();
   }

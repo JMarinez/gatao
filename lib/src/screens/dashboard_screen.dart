@@ -19,13 +19,28 @@ class DashboardScreen extends StatelessWidget {
           );
         } else {
           return Center(
-            child: Text(
-              'Total spent: ${manager.totalSpent.toString()}',
-              style: const TextStyle(fontSize: 30.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'Total spent: ${manager.totalSpent.toString()}',
+                  style: const TextStyle(fontSize: 30.0),
+                ),
+                //* Condition to let the user know they are reaching the total expense limit
+                getLimitMessage(manager),
+              ],
             ),
           );
         }
       },
     );
+  }
+
+  Widget getLimitMessage(ExpenseManager manager) {
+    if (manager.isReachingLimit) {
+      return const Text("You're reaching the limit!");
+    } else {
+      return Container();
+    }
   }
 }
