@@ -7,6 +7,7 @@ class ExpenseManager extends ChangeNotifier {
   final _expenses = <Expense>[];
   double _totalSpent = 0;
   final double _expenseLimit = 5000;
+  bool isReachingLimit = false;
 
   UnmodifiableListView get expenses => UnmodifiableListView(_expenses);
 
@@ -22,6 +23,10 @@ class ExpenseManager extends ChangeNotifier {
     _expenses.add(expense);
     _totalSpent = _totalSpent + double.parse(expense.amount);
     print(_totalSpent);
+
+    if (double.parse(expense.amount) * 0.8 <= _expenseLimit) {
+      isReachingLimit = true;
+    }
 
     notifyListeners();
   }
