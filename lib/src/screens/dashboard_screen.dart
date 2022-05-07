@@ -8,13 +8,24 @@ class DashboardScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<ExpenseManager>(builder: (context, manager, child) {
-      return Center(
-        child: Text(
-          'Total spent: ${manager.totalSpent.toString()}',
-          style: const TextStyle(fontSize: 30.0),
-        ),
-      );
-    });
+    return Consumer<ExpenseManager>(
+      builder: (context, manager, child) {
+        if (manager.totalSpent == 0) {
+          return const Center(
+            child: Text(
+              'No money spent!',
+              style: TextStyle(fontSize: 30.0),
+            ),
+          );
+        } else {
+          return Center(
+            child: Text(
+              'Total spent: ${manager.totalSpent.toString()}',
+              style: const TextStyle(fontSize: 30.0),
+            ),
+          );
+        }
+      },
+    );
   }
 }

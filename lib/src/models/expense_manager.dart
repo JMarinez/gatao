@@ -6,11 +6,16 @@ import 'package:gatao/src/models/expense.dart';
 class ExpenseManager extends ChangeNotifier {
   final _expenses = <Expense>[];
   double _totalSpent = 0;
+  final double _expenseLimit = 5000;
 
   UnmodifiableListView get expenses => UnmodifiableListView(_expenses);
 
   double get totalSpent {
     return _totalSpent;
+  }
+
+  double get expenseLimit {
+    return _expenseLimit;
   }
 
   void addExpense(Expense expense) {
