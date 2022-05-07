@@ -39,6 +39,8 @@ class DashboardScreen extends StatelessWidget {
   Widget getLimitMessage(ExpenseManager manager) {
     if (manager.isReachingLimit) {
       return const Text("You're reaching the limit!");
+    } else if (manager.hasReachedLimit) {
+      return const Text("You reached the limit! Spend less money next time!");
     } else {
       return Container();
     }

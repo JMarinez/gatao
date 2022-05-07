@@ -8,6 +8,7 @@ class ExpenseManager extends ChangeNotifier {
   double _totalSpent = 0;
   final double _expenseLimit = 5000;
   bool isReachingLimit = false;
+  bool hasReachedLimit = false;
 
   UnmodifiableListView get expenses => UnmodifiableListView(_expenses);
 
@@ -23,7 +24,10 @@ class ExpenseManager extends ChangeNotifier {
     _expenses.add(expense);
     _totalSpent = _totalSpent + double.parse(expense.amount);
 
-    if (_totalSpent >= _expenseLimit * 0.8) {
+    if (_totalSpent >= _expenseLimit) {
+      isReachingLimit = false;
+      hasReachedLimit = true;
+    } else if (_totalSpent >= _expenseLimit * 0.8) {
       isReachingLimit = true;
     } else {
       isReachingLimit = false;
@@ -43,7 +47,10 @@ class ExpenseManager extends ChangeNotifier {
     //* Adding new expense amount
     _totalSpent = _totalSpent + double.parse(expense.amount);
 
-    if (_totalSpent >= _expenseLimit * 0.8) {
+    if (_totalSpent >= _expenseLimit) {
+      isReachingLimit = false;
+      hasReachedLimit = true;
+    } else if (_totalSpent >= _expenseLimit * 0.8) {
       isReachingLimit = true;
     } else {
       isReachingLimit = false;
