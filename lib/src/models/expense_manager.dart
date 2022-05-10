@@ -33,8 +33,6 @@ class ExpenseManager extends ChangeNotifier {
       isReachingLimit = false;
     }
 
-    print(isReachingLimit);
-
     notifyListeners();
   }
 
@@ -55,8 +53,6 @@ class ExpenseManager extends ChangeNotifier {
     } else {
       isReachingLimit = false;
     }
-
-    print(isReachingLimit);
 
     notifyListeners();
   }
