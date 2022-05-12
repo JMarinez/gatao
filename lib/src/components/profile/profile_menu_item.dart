@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 
 class ProfileMenuItem extends StatelessWidget {
+  final IconData iconData;
+  final String label;
+
   const ProfileMenuItem({
     Key? key,
+    required this.iconData,
+    required this.label,
   }) : super(key: key);
 
   @override
@@ -13,8 +18,8 @@ class ProfileMenuItem extends StatelessWidget {
         children: [
           Container(
             padding: const EdgeInsets.all(8.0),
-            child: const Icon(
-              Icons.account_balance,
+            child: Icon(
+              iconData,
               size: 32.0,
             ),
             decoration: BoxDecoration(
@@ -25,8 +30,8 @@ class ProfileMenuItem extends StatelessWidget {
             width: 10.0,
           ),
           Text(
-            'Account',
-            style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
+            label,
+            style: const TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
           ),
         ],
       ),

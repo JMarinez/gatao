@@ -12,9 +12,10 @@ class ProfileScreen extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 16.0),
       color: const Color(0xffE3E5E5),
       child: Column(
-        children: [
-          const ProfileHeader(),
-          const ProfileBody(),
+        children: const [
+          ProfileHeader(),
+          SizedBox(height: 25.0),
+          ProfileBody(),
         ],
       ),
     );
