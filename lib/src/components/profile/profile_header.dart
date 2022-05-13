@@ -25,15 +25,15 @@ class ProfileHeader extends StatelessWidget {
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
+              children: [
                 Text(
                   'Username',
-                  style: TextStyle(fontSize: 16),
+                  style: Theme.of(context).textTheme.subtitle1,
                 ),
-                SizedBox(height: 10.0),
+                const SizedBox(height: 10.0),
                 Text(
                   'Juan Mariñez',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  style: Theme.of(context).textTheme.headline2,
                 ),
               ],
             ),

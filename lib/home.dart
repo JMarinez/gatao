@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:gatao/src/components/navigation/bottom_nav_bar_item.dart';
+import 'package:gatao/src/screens/budget_screen.dart';
 import 'package:provider/provider.dart';
 
 import 'package:gatao/src/models/tab_manager.dart';
@@ -17,37 +19,70 @@ class _HomeState extends State<Home> {
   static List pages = [
     const DashboardScreen(),
     const ActivityScreen(),
+    const BudgetScreen(),
     const ProfileScreen(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Consumer<TabManager>(builder: (context, tabManager, child) {
-      return Scaffold(
-        appBar: AppBar(
-          title: const Text('Gatao'),
-        ),
-        body: pages[tabManager.selectedTab],
-        bottomNavigationBar: BottomNavigationBar(
-          currentIndex: tabManager.selectedTab,
-          type: BottomNavigationBarType.fixed,
-          items: const [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.dashboard),
-              label: 'Dashboard',
+      return Container(
+        color: const Color(0xffF7F9FA),
+        child: SafeArea(
+          child: Scaffold(
+            backgroundColor: Colors.transparent,
+            body: pages[tabManager.selectedTab],
+            bottomNavigationBar: BottomAppBar(
+              shape: const CircularNotchedRectangle(),
+              notchMargin: 10.0,
+              child: SizedBox(
+                height: 60.0,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        BottomNavBarItem(
+                          label: 'Home',
+                          iconData: Icons.home,
+                          tabManager: tabManager,
+                          tabIndex: 0,
+                        ),
+                        BottomNavBarItem(
+                          label: 'Activity',
+                          iconData: Icons.payments,
+                          tabManager: tabManager,
+                          tabIndex: 1,
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        BottomNavBarItem(
+                          label: 'Budget',
+                          iconData: Icons.pie_chart,
+                          tabManager: tabManager,
+                          tabIndex: 2,
+                        ),
+                        BottomNavBarItem(
+                          label: 'Profile',
+                          iconData: Icons.account_circle,
+                          tabManager: tabManager,
+                          tabIndex: 3,
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.payments),
-              label: 'Activity',
+            floatingActionButton: FloatingActionButton(
+              child: Icon(Icons.add),
+              onPressed: (() {}),
             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.account_box),
-              label: 'Profile',
-            ),
-          ],
-          onTap: (value) {
-            tabManager.goToTab(value);
-          },
+            floatingActionButtonLocation:
+                FloatingActionButtonLocation.centerDocked,
+          ),
         ),
       );
     });

@@ -17,20 +17,36 @@ class GataoApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Gatao',
       theme: ThemeData(
-          primarySwatch: Colors.red,
-          primaryTextTheme: TextTheme(
-            headline1:
-                GoogleFonts.inter(fontSize: 32.0, fontWeight: FontWeight.bold),
-            headline2:
-                GoogleFonts.inter(fontSize: 24.0, fontWeight: FontWeight.bold),
-            headline3:
-                GoogleFonts.inter(fontSize: 18.0, fontWeight: FontWeight.bold),
-            bodyText1: GoogleFonts.inter(fontSize: 16.0),
-            bodyText2:
-                GoogleFonts.inter(fontSize: 16.0, fontWeight: FontWeight.bold),
-          )),
+        useMaterial3: true,
+        textTheme: TextTheme(
+          headline1: GoogleFonts.inter(
+            fontSize: 32.0,
+            fontWeight: FontWeight.bold,
+          ),
+          headline2: GoogleFonts.inter(
+            fontSize: 24.0,
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+          ),
+          headline3: GoogleFonts.inter(
+            fontSize: 18.0,
+            fontWeight: FontWeight.bold,
+          ),
+          subtitle1: GoogleFonts.inter(
+            fontSize: 14.0,
+            color: Colors.grey,
+          ),
+          bodyText1: GoogleFonts.inter(
+            fontSize: 16.0,
+          ),
+          bodyText2: GoogleFonts.inter(
+            fontSize: 16.0,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
       home: MultiProvider(
         providers: [
           ChangeNotifierProvider(create: (context) => TabManager()),

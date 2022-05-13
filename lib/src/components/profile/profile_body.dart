@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:gatao/src/components/expense_card.dart';
+import 'package:gatao/src/screens/account_screen.dart';
 
 import 'profile_menu_item.dart';
 
@@ -11,14 +13,30 @@ class ProfileBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Column(
-        children: const [
-          ProfileMenuItem(iconData: Icons.account_balance, label: 'Account'),
-          Divider(thickness: 1, height: 1, color: Colors.grey),
-          ProfileMenuItem(iconData: Icons.settings, label: 'Settings'),
-          Divider(thickness: 1, height: 1, color: Colors.grey),
-          ProfileMenuItem(iconData: Icons.import_export, label: 'Export Data'),
-          Divider(thickness: 1, height: 1, color: Colors.grey),
-          ProfileMenuItem(iconData: Icons.logout, label: 'Logout'),
+        children: [
+          GestureDetector(
+            child: const ProfileMenuItem(
+              iconData: Icons.account_balance,
+              label: 'Account',
+            ),
+            onTap: () => Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const AccountScreen())),
+          ),
+          const Divider(thickness: 1, height: 1, color: Colors.grey),
+          const ProfileMenuItem(
+            iconData: Icons.settings,
+            label: 'Settings',
+          ),
+          const Divider(thickness: 1, height: 1, color: Colors.grey),
+          const ProfileMenuItem(
+            iconData: Icons.import_export,
+            label: 'Export Data',
+          ),
+          const Divider(thickness: 1, height: 1, color: Colors.grey),
+          const ProfileMenuItem(
+            iconData: Icons.logout,
+            label: 'Logout',
+          ),
         ],
       ),
       decoration: BoxDecoration(

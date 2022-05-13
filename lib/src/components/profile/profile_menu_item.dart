@@ -13,6 +13,8 @@ class ProfileMenuItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      color: Colors.white,
+      height: 80,
       padding: const EdgeInsets.all(15.0),
       child: Row(
         children: [
@@ -31,7 +33,7 @@ class ProfileMenuItem extends StatelessWidget {
           ),
           Text(
             label,
-            style: const TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
+            style: Theme.of(context).textTheme.bodyText2,
           ),
         ],
       ),

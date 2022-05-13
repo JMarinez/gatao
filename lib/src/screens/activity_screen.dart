@@ -11,32 +11,7 @@ class ActivityScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: SizedBox(
-          child: _buildActivityBody(),
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.add),
-        onPressed: () {
-          final manager = Provider.of<ExpenseManager>(context, listen: false);
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => CreateExpenseScreen(
-                onCreate: (expense) {
-                  manager.addExpense(expense);
-
-                  Navigator.pop(context);
-                },
-                onUpdate: (expense) {},
-              ),
-            ),
-          );
-        },
-      ),
-    );
+    return SizedBox(child: _buildActivityBody());
   }
 
   Widget _buildActivityBody() {
