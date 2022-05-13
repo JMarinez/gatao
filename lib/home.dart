@@ -26,7 +26,6 @@ class _HomeState extends State<Home> {
       return Scaffold(
         appBar: AppBar(
           title: const Text('Gatao'),
-          backgroundColor: Colors.red,
         ),
         body: pages[tabManager.selectedTab],
         bottomNavigationBar: BottomNavigationBar(

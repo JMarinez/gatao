@@ -10,15 +10,19 @@ class ProfileBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
       child: Column(
         children: const [
           ProfileMenuItem(iconData: Icons.account_balance, label: 'Account'),
+          Divider(thickness: 1, height: 1, color: Colors.grey),
           ProfileMenuItem(iconData: Icons.settings, label: 'Settings'),
+          Divider(thickness: 1, height: 1, color: Colors.grey),
           ProfileMenuItem(iconData: Icons.import_export, label: 'Export Data'),
+          Divider(thickness: 1, height: 1, color: Colors.grey),
           ProfileMenuItem(iconData: Icons.logout, label: 'Logout'),
         ],
       ),
+      decoration: BoxDecoration(
+          color: Colors.white, borderRadius: BorderRadius.circular(25.0)),
     );
   }
 }
