@@ -13,7 +13,7 @@ class ProfileMenuItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
+      color: Colors.transparent,
       height: 80,
       padding: const EdgeInsets.all(15.0),
       child: Row(
