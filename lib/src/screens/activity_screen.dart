@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 
 import 'package:gatao/src/screens/create_expense_screen.dart';
 
-import '../models/expense_manager.dart';
+import '../models/services/expense_manager.dart';
 
 class ActivityScreen extends StatelessWidget {
   const ActivityScreen({Key? key}) : super(key: key);

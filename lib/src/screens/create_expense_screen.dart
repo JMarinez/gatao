@@ -22,9 +22,11 @@ class CreateExpenseScreen extends StatefulWidget {
 
 class _CreateExpenseScreenState extends State<CreateExpenseScreen> {
   final labelController = TextEditingController();
+  final descriptionController = TextEditingController();
   final amountController = TextEditingController();
 
   String label = '';
+  String description = '';
   String amount = '';
 
   @override
@@ -33,14 +35,22 @@ class _CreateExpenseScreenState extends State<CreateExpenseScreen> {
 
     if (originalItem != null) {
       labelController.text = originalItem.label;
+      amountController.text = originalItem.amount;
+      descriptionController.text = originalItem.description;
       label = originalItem.label;
       amount = originalItem.amount;
-      amountController.text = originalItem.amount;
+      description = originalItem.description;
     }
 
     labelController.addListener(() {
       setState(() {
         label = labelController.text;
+      });
+    });
+
+    descriptionController.addListener(() {
+      setState(() {
+        description = descriptionController.text;
       });
     });
 
@@ -71,6 +81,7 @@ class _CreateExpenseScreenState extends State<CreateExpenseScreen> {
               final _expense = Expense(
                 id: widget.originalItem?.id ?? const Uuid().v1(),
                 label: label,
+                description: description,
                 amount: amount,
               );
 
@@ -89,6 +100,8 @@ class _CreateExpenseScreenState extends State<CreateExpenseScreen> {
           children: [
             _buildLabelField(),
             const SizedBox(height: 10.0),
+            _buildDescriptionField(),
+            const SizedBox(height: 10.0),
             _buildAmountField(),
             const SizedBox(height: 10.0),
           ],
@@ -104,6 +117,18 @@ class _CreateExpenseScreenState extends State<CreateExpenseScreen> {
         const Text('Expense label'),
         TextField(
           controller: labelController,
+        ),
+      ],
+    );
+  }
+
+  Widget _buildDescriptionField() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text('Description'),
+        TextField(
+          controller: descriptionController,
         ),
       ],
     );

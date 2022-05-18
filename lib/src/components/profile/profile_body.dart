@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gatao/src/components/expense_card.dart';
-import 'package:gatao/src/screens/account_screen.dart';
+import 'package:gatao/src/screens/account/account_screen.dart';
 
 import 'profile_menu_item.dart';
 

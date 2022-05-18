@@ -3,7 +3,7 @@ import 'package:gatao/src/components/navigation/bottom_nav_bar_item.dart';
 import 'package:gatao/src/screens/budget_screen.dart';
 import 'package:provider/provider.dart';
 
-import 'package:gatao/src/models/tab_manager.dart';
+import 'package:gatao/src/models/services/tab_manager.dart';
 import 'package:gatao/src/screens/activity_screen.dart';
 import 'package:gatao/src/screens/dashboard_screen.dart';
 import 'package:gatao/src/screens/profile_screen.dart';

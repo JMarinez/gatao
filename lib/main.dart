@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gatao/src/models/expense_manager.dart';
-import 'package:gatao/src/models/tab_manager.dart';
+import 'package:gatao/src/models/services/expense_manager.dart';
+import 'package:gatao/src/models/services/tab_manager.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'home.dart';
@@ -22,15 +22,21 @@ class GataoApp extends StatelessWidget {
         useMaterial3: true,
         textTheme: TextTheme(
           headline1: GoogleFonts.inter(
-            fontSize: 32.0,
+            fontSize: 36.0,
             fontWeight: FontWeight.bold,
+            color: Colors.black,
           ),
           headline2: GoogleFonts.inter(
-            fontSize: 24.0,
+            fontSize: 32.0,
             fontWeight: FontWeight.bold,
             color: Colors.black,
           ),
           headline3: GoogleFonts.inter(
+            fontSize: 24.0,
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+          ),
+          headline4: GoogleFonts.inter(
             fontSize: 18.0,
             fontWeight: FontWeight.bold,
           ),

@@ -33,7 +33,7 @@ class ProfileHeader extends StatelessWidget {
                 const SizedBox(height: 10.0),
                 Text(
                   'Juan Mariñez',
-                  style: Theme.of(context).textTheme.headline2,
+                  style: Theme.of(context).textTheme.headline3,
                 ),
               ],
             ),
