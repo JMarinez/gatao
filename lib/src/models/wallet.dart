@@ -2,23 +2,23 @@ import 'package:gatao/src/models/transaccion.dart';
 
 class Wallet {
   final String name;
-  final List<Transaction> expenses;
+  final List<Transaction> transacitons;
   final double totalBalance;
 
   Wallet({
     required this.name,
-    required this.expenses,
+    required this.transacitons,
     required this.totalBalance,
   });
 
   Wallet copyWith({
     String? name,
-    List<Transaction>? expenses,
+    List<Transaction>? transacitons,
     double? totalBalance,
   }) {
     return Wallet(
         name: name ?? this.name,
-        expenses: expenses ?? this.expenses,
+        transacitons: transacitons ?? this.transacitons,
         totalBalance: totalBalance ?? this.totalBalance);
   }
 }

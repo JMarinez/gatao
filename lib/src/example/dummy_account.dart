@@ -8,7 +8,7 @@ List<Account> dummyAccount = [
     wallets: [
       Wallet(
         name: 'Wallet',
-        expenses: [
+        transacitons: [
           Transaction(
             id: "1",
             description: 'Netflix subscription',
@@ -21,7 +21,7 @@ List<Account> dummyAccount = [
       ),
       Wallet(
         name: 'Banco Popular',
-        expenses: [
+        transacitons: [
           Transaction(
             id: "1",
             description: 'Netflix subscription',

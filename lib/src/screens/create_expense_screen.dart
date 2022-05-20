@@ -67,7 +67,7 @@ class _CreateExpenseScreenState extends State<CreateExpenseScreen> {
           IconButton(
             icon: const Icon(Icons.check),
             onPressed: () {
-              final _expense = Transaction(
+              final _transaciton = Transaction(
                 id: widget.originalItem?.id ?? const Uuid().v1(),
                 description: description,
                 amount: amount,
@@ -76,9 +76,9 @@ class _CreateExpenseScreenState extends State<CreateExpenseScreen> {
               );
 
               if (widget.isUpdating) {
-                widget.onUpdate(_expense);
+                widget.onUpdate(_transaciton);
               } else {
-                widget.onCreate(_expense);
+                widget.onCreate(_transaciton);
               }
             },
           ),
