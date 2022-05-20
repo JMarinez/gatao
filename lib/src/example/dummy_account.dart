@@ -1,8 +1,24 @@
+import 'package:gatao/src/models/expense.dart';
+import 'package:gatao/src/models/wallet.dart';
+
 import '../models/account.dart';
 
 List<Account> dummyAccount = [
   Account(
-    wallets: [],
+    wallets: [
+      Wallet(
+          name: 'Wallet',
+          expenses: [
+            Expense(
+              id: "1",
+              description: 'Netflix subscription',
+              amount: '14.99',
+              category: Category.subscription,
+              type: Type.expense,
+            )
+          ],
+          totalBalance: 0),
+    ],
     totalBalance: 0,
   )
 ];
