@@ -77,6 +77,7 @@ class _HomeState extends State<Home> {
               ),
             ),
             floatingActionButton: FloatingActionButton(
+              backgroundColor: Theme.of(context).primaryColor,
               child: Icon(Icons.add),
               onPressed: (() {}),
             ),

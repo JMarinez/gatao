@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:gatao/src/screens/activity_list_screen.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
-import 'package:gatao/src/screens/create_expense_screen.dart';
-
+import 'package:gatao/src/screens/activity_list_screen.dart';
 import '../models/services/expense_manager.dart';
 
 class ActivityScreen extends StatelessWidget {
@@ -24,7 +23,13 @@ class ActivityScreen extends StatelessWidget {
         return Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset('assets/receipt.png'),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12.0),
+              child: SvgPicture.asset(
+                'assets/payments.svg',
+                height: 300,
+              ),
+            ),
             const Text('No recent activity', style: TextStyle(fontSize: 24.0)),
             const Text('Tap the + to add your recent expenses!'),
           ],

@@ -26,13 +26,13 @@ class BottomNavBarItem extends StatelessWidget {
         children: [
           Icon(iconData,
               color: tabManager.selectedTab == tabIndex
-                  ? Colors.blue
+                  ? Theme.of(context).primaryColor
                   : Colors.grey),
           Text(
             label,
             style: TextStyle(
                 color: tabManager.selectedTab == tabIndex
-                    ? Colors.blue
+                    ? Theme.of(context).primaryColor
                     : Colors.grey),
           ),
         ],

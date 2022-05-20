@@ -19,7 +19,7 @@ class GataoApp extends StatelessWidget {
     return MaterialApp(
       title: 'Gatao',
       theme: ThemeData(
-        useMaterial3: true,
+        primaryColor: const Color(0xFFE65100),
         textTheme: TextTheme(
           headline1: GoogleFonts.inter(
             fontSize: 36.0,
