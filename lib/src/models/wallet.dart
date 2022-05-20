@@ -1,8 +1,8 @@
-import 'package:gatao/src/models/expense.dart';
+import 'package:gatao/src/models/transaccion.dart';
 
 class Wallet {
   final String name;
-  final List<Expense> expenses;
+  final List<Transaction> expenses;
   final double totalBalance;
 
   Wallet({
@@ -13,7 +13,7 @@ class Wallet {
 
   Wallet copyWith({
     String? name,
-    List<Expense>? expenses,
+    List<Transaction>? expenses,
     double? totalBalance,
   }) {
     return Wallet(

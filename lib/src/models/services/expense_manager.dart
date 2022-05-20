@@ -1,10 +1,10 @@
 import 'dart:collection';
 
 import 'package:flutter/material.dart';
-import 'package:gatao/src/models/expense.dart';
+import 'package:gatao/src/models/transaccion.dart';
 
 class ExpenseManager extends ChangeNotifier {
-  final _expenses = <Expense>[];
+  final _expenses = <Transaction>[];
   double _totalSpent = 0;
   final double _expenseLimit = 5000;
   bool isReachingLimit = false;
@@ -20,7 +20,7 @@ class ExpenseManager extends ChangeNotifier {
     return _expenseLimit;
   }
 
-  void addExpense(Expense expense) {
+  void addExpense(Transaction expense) {
     _expenses.add(expense);
     _totalSpent = _totalSpent + double.parse(expense.amount);
 
@@ -36,7 +36,7 @@ class ExpenseManager extends ChangeNotifier {
     notifyListeners();
   }
 
-  void updateExpense(Expense expense, int index) {
+  void updateExpense(Transaction expense, int index) {
     final oldAmount = double.parse(expenses[index].amount);
     _expenses[index] = expense;
 
@@ -57,7 +57,7 @@ class ExpenseManager extends ChangeNotifier {
     notifyListeners();
   }
 
-  void deleteAllExpense(Expense expense) {
+  void deleteAllExpense(Transaction expense) {
     _expenses.clear();
 
     notifyListeners();

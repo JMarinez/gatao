@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:uuid/uuid.dart';
 
-import 'package:gatao/src/models/expense.dart';
+import 'package:gatao/src/models/transaccion.dart';
 
 class CreateExpenseScreen extends StatefulWidget {
-  final Function(Expense) onCreate;
-  final Function(Expense) onUpdate;
+  final Function(Transaction) onCreate;
+  final Function(Transaction) onUpdate;
   final bool isUpdating;
-  final Expense? originalItem;
+  final Transaction? originalItem;
   const CreateExpenseScreen({
     Key? key,
     required this.onCreate,
@@ -67,7 +67,7 @@ class _CreateExpenseScreenState extends State<CreateExpenseScreen> {
           IconButton(
             icon: const Icon(Icons.check),
             onPressed: () {
-              final _expense = Expense(
+              final _expense = Transaction(
                 id: widget.originalItem?.id ?? const Uuid().v1(),
                 description: description,
                 amount: amount,
