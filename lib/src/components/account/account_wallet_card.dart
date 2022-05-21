@@ -23,7 +23,7 @@ class AccountWalletCard extends StatelessWidget {
                   width: 50.0,
                   child: Icon(
                     Utils.parseIconData(wallet.icon),
-                    size: 35.0,
+                    size: 32.0,
                     color: Theme.of(context).primaryColor,
                   ),
                   decoration: BoxDecoration(

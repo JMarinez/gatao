@@ -15,7 +15,7 @@ class ProfileBody extends StatelessWidget {
         children: [
           GestureDetector(
             child: const ProfileMenuItem(
-              iconData: Icons.account_balance,
+              icon: 'account_balance',
               label: 'Account',
             ),
             onTap: () => Navigator.push(context,
@@ -23,18 +23,20 @@ class ProfileBody extends StatelessWidget {
           ),
           const Divider(thickness: 1, height: 1, color: Colors.grey),
           const ProfileMenuItem(
-            iconData: Icons.settings,
+            icon: 'settings',
             label: 'Settings',
           ),
           const Divider(thickness: 1, height: 1, color: Colors.grey),
           const ProfileMenuItem(
-            iconData: Icons.import_export,
+            icon: 'import_export',
             label: 'Export Data',
           ),
           const Divider(thickness: 1, height: 1, color: Colors.grey),
           const ProfileMenuItem(
-            iconData: Icons.logout,
+            icon: 'logout',
             label: 'Logout',
+            iconBackgroundColor: Colors.red,
+            iconColor: Colors.red,
           ),
         ],
       ),

@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:gatao/src/components/icon_container.dart';
 
 class ProfileMenuItem extends StatelessWidget {
-  final IconData iconData;
+  final String icon;
   final String label;
+  final Color? iconColor;
+  final Color? iconBackgroundColor;
 
   const ProfileMenuItem({
     Key? key,
-    required this.iconData,
+    required this.icon,
     required this.label,
+    this.iconColor,
+    this.iconBackgroundColor,
   }) : super(key: key);
 
   @override
@@ -18,16 +23,10 @@ class ProfileMenuItem extends StatelessWidget {
       padding: const EdgeInsets.all(15.0),
       child: Row(
         children: [
-          Container(
-            padding: const EdgeInsets.all(8.0),
-            child: Icon(
-              iconData,
-              size: 32.0,
-            ),
-            decoration: BoxDecoration(
-                color: const Color(0xffEEE5FF),
-                borderRadius: BorderRadius.circular(15.0)),
-          ),
+          IconContainer(
+              icon: icon,
+              iconColor: iconColor,
+              backgroundColor: iconBackgroundColor),
           const SizedBox(
             width: 10.0,
           ),
