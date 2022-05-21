@@ -4,6 +4,7 @@ import 'package:gatao/src/models/services/tab_manager.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'home.dart';
+import 'src/models/services/account_manager.dart';
 
 void main() {
   runApp(
@@ -57,6 +58,7 @@ class GataoApp extends StatelessWidget {
         providers: [
           ChangeNotifierProvider(create: (context) => TabManager()),
           ChangeNotifierProvider(create: (context) => ExpenseManager()),
+          ChangeNotifierProvider(create: (context) => AccountManager()),
         ],
         child: const Home(),
       ),

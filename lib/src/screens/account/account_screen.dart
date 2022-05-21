@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:gatao/src/screens/account/account_list.dart';
+import 'package:provider/provider.dart';
 import 'package:gatao/src/components/account/account_header.dart';
-import 'package:gatao/src/components/account/account_wallet_card.dart';
+import 'package:gatao/src/models/services/account_manager.dart';
 
 class AccountScreen extends StatelessWidget {
   const AccountScreen({Key? key}) : super(key: key);
@@ -28,12 +30,25 @@ class AccountScreen extends StatelessWidget {
       body: SizedBox(
         width: double.infinity,
         child: Column(
-          children: const [
-            AccountHeader(),
-            SizedBox(height: 10.0),
+          children: [
+            const AccountHeader(),
+            const SizedBox(height: 10.0),
+            _buildAccountBody(),
           ],
         ),
       ),
+    );
+  }
+
+  Widget _buildAccountBody() {
+    return Consumer<AccountManager>(
+      builder: (context, manager, child) {
+        if (manager.account.wallets.isEmpty) {
+          return Container();
+        } else {
+          return AccountList(manager: manager);
+        }
+      },
     );
   }
 }
