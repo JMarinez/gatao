@@ -43,10 +43,10 @@ class AccountScreen extends StatelessWidget {
   Widget _buildAccountBody() {
     return Consumer<AccountManager>(
       builder: (context, manager, child) {
-        if (manager.account.wallets.isEmpty) {
-          return Container();
-        } else {
+        if (manager.account.wallets.isNotEmpty) {
           return AccountList(manager: manager);
+        } else {
+          return Container();
         }
       },
     );

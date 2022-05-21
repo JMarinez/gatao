@@ -17,50 +17,50 @@ class GataoApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Gatao',
-      theme: ThemeData(
-        primaryColor: const Color(0xFFE65100),
-        textTheme: TextTheme(
-          headline1: GoogleFonts.inter(
-            fontSize: 36.0,
-            fontWeight: FontWeight.bold,
-            color: Colors.black,
-          ),
-          headline2: GoogleFonts.inter(
-            fontSize: 32.0,
-            fontWeight: FontWeight.bold,
-            color: Colors.black,
-          ),
-          headline3: GoogleFonts.inter(
-            fontSize: 24.0,
-            fontWeight: FontWeight.bold,
-            color: Colors.black,
-          ),
-          headline4: GoogleFonts.inter(
-            fontSize: 18.0,
-            fontWeight: FontWeight.bold,
-          ),
-          subtitle1: GoogleFonts.inter(
-            fontSize: 14.0,
-            color: Colors.grey,
-          ),
-          bodyText1: GoogleFonts.inter(
-            fontSize: 16.0,
-          ),
-          bodyText2: GoogleFonts.inter(
-            fontSize: 16.0,
-            fontWeight: FontWeight.bold,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => TabManager()),
+        ChangeNotifierProvider(create: (context) => ExpenseManager()),
+        ChangeNotifierProvider(create: (context) => AccountManager()),
+      ],
+      child: MaterialApp(
+        title: 'Gatao',
+        theme: ThemeData(
+          primaryColor: const Color(0xFFE65100),
+          textTheme: TextTheme(
+            headline1: GoogleFonts.inter(
+              fontSize: 36.0,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+            ),
+            headline2: GoogleFonts.inter(
+              fontSize: 32.0,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+            ),
+            headline3: GoogleFonts.inter(
+              fontSize: 24.0,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+            ),
+            headline4: GoogleFonts.inter(
+              fontSize: 18.0,
+              fontWeight: FontWeight.bold,
+            ),
+            subtitle1: GoogleFonts.inter(
+              fontSize: 14.0,
+              color: Colors.grey,
+            ),
+            bodyText1: GoogleFonts.inter(
+              fontSize: 16.0,
+            ),
+            bodyText2: GoogleFonts.inter(
+              fontSize: 16.0,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
-      ),
-      home: MultiProvider(
-        providers: [
-          ChangeNotifierProvider(create: (context) => TabManager()),
-          ChangeNotifierProvider(create: (context) => ExpenseManager()),
-          ChangeNotifierProvider(create: (context) => AccountManager()),
-        ],
-        child: const Home(),
+        home: const Home(),
       ),
     );
   }

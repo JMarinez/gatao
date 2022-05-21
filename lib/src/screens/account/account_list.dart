@@ -12,6 +12,7 @@ class AccountList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
+      shrinkWrap: true,
       itemBuilder: ((context, index) =>
           AccountWalletCard(wallet: manager.wallet[index])),
       separatorBuilder: (context, index) => const Divider(),
