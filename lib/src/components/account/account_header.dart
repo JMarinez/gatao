@@ -8,13 +8,13 @@ class AccountHeader extends StatelessWidget {
     return Stack(
       children: [
         Container(
-          height: 180,
+          height: MediaQuery.of(context).size.height * 0.2,
           width: double.infinity,
           color: Theme.of(context).primaryColor,
         ),
         Center(
           child: Container(
-            height: 180.0,
+            height: MediaQuery.of(context).size.height * 0.2,
             width: MediaQuery.of(context).size.width * 0.8,
             color: Colors.white,
             child: Column(

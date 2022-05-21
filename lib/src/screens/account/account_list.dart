@@ -11,15 +11,18 @@ class AccountList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GlowingOverscrollIndicator(
-      color: Colors.orange,
-      axisDirection: AxisDirection.down,
-      child: ListView.separated(
-        shrinkWrap: true,
-        itemBuilder: ((context, index) =>
-            AccountWalletCard(wallet: manager.wallet[index])),
-        separatorBuilder: (context, index) => const Divider(),
-        itemCount: manager.wallet.length,
+    return SizedBox(
+      height: MediaQuery.of(context).size.height * 0.5,
+      child: GlowingOverscrollIndicator(
+        color: Colors.orange,
+        axisDirection: AxisDirection.down,
+        child: ListView.separated(
+          shrinkWrap: true,
+          itemBuilder: ((context, index) =>
+              AccountWalletCard(wallet: manager.wallet[index])),
+          separatorBuilder: (context, index) => const Divider(),
+          itemCount: manager.wallet.length,
+        ),
       ),
     );
   }

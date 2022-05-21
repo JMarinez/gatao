@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gatao/src/screens/account/account_list.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:gatao/src/components/account/account_header.dart';
 import 'package:gatao/src/models/services/account_manager.dart';
@@ -34,6 +35,26 @@ class AccountScreen extends StatelessWidget {
             const AccountHeader(),
             const SizedBox(height: 10.0),
             _buildAccountBody(),
+            const Spacer(),
+            Container(
+              margin: const EdgeInsets.symmetric(horizontal: 15.0),
+              height: 55,
+              width: double.infinity,
+              child: Center(
+                child: Text(
+                  '+ Add new wallet',
+                  style: GoogleFonts.inter(
+                      color: Colors.white,
+                      fontSize: 18.0,
+                      fontWeight: FontWeight.bold),
+                ),
+              ),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15.0),
+                color: Theme.of(context).primaryColor,
+              ),
+            ),
+            const SizedBox(height: 15.0),
           ],
         ),
       ),

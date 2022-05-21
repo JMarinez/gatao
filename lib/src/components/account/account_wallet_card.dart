@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gatao/src/util/utils.dart';
 
-import '../../models/transaccion.dart';
 import '../../models/wallet.dart';
 
 class AccountWalletCard extends StatelessWidget {
@@ -10,10 +9,10 @@ class AccountWalletCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 65,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+        padding: const EdgeInsets.symmetric(horizontal: 15.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -39,7 +38,10 @@ class AccountWalletCard extends StatelessWidget {
                 ),
               ],
             ),
-            Text('\$${wallet.totalBalance.toString()}'),
+            Text(
+              '\$${wallet.totalBalance.toString()}',
+              style: Theme.of(context).textTheme.headline4,
+            ),
           ],
         ),
       ),

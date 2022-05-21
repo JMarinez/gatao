@@ -49,9 +49,9 @@ class GataoApp extends StatelessWidget {
               color: Colors.black,
             ),
             subtitle1: GoogleFonts.inter(
-              fontSize: 14.0,
-              color: Colors.grey,
-            ),
+                fontSize: 14.0,
+                color: Colors.grey,
+                fontWeight: FontWeight.w500),
             bodyText1: GoogleFonts.inter(
               fontSize: 16.0,
             ),
