@@ -31,6 +31,19 @@ Account dummyAccount = Account(
       ],
       totalBalance: 0,
     ),
+    Wallet(
+      name: 'Paypal',
+      transacitons: [
+        Transaction(
+          id: "1",
+          description: 'Netflix subscription',
+          amount: '14.99',
+          category: Category.subscription,
+          type: Type.expense,
+        )
+      ],
+      totalBalance: 0,
+    ),
   ],
   totalBalance: 0,
 );
