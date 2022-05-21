@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 enum Category {
   shopping,
   subscription,
@@ -16,6 +18,7 @@ class Transaction {
   final String id;
   final String description;
   final String amount;
+  final String icon;
   final Category category;
   final Type type;
 
@@ -23,6 +26,7 @@ class Transaction {
     required this.id,
     required this.description,
     required this.amount,
+    required this.icon,
     required this.category,
     required this.type,
   });
@@ -31,6 +35,7 @@ class Transaction {
     String? id,
     String? description,
     String? amount,
+    String? icon,
     Category? category,
     Type? type,
   }) {
@@ -38,6 +43,7 @@ class Transaction {
       id: id ?? this.id,
       description: description ?? this.description,
       amount: amount ?? this.amount,
+      icon: icon ?? this.icon,
       category: category ?? this.category,
       type: type ?? this.type,
     );

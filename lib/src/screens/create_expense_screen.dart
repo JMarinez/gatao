@@ -71,6 +71,7 @@ class _CreateExpenseScreenState extends State<CreateExpenseScreen> {
                 id: widget.originalItem?.id ?? const Uuid().v1(),
                 description: description,
                 amount: amount,
+                icon: '',
                 category: Category.shopping,
                 type: Type.expense,
               );

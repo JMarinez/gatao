@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:gatao/src/util/utils.dart';
 
+import '../../models/transaccion.dart';
 import '../../models/wallet.dart';
 
 class AccountWalletCard extends StatelessWidget {
@@ -20,20 +22,24 @@ class AccountWalletCard extends StatelessWidget {
                 Container(
                   height: 50.0,
                   width: 50.0,
-                  child: const Icon(
-                    Icons.payment,
+                  child: Icon(
+                    Utils.parseIconData(wallet.icon),
                     size: 35.0,
+                    color: Theme.of(context).primaryColor,
                   ),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(15.0),
-                    color: Theme.of(context).primaryColor,
+                    color: Colors.orange.shade100,
                   ),
                 ),
                 const SizedBox(width: 10.0),
-                Text(wallet.name),
+                Text(
+                  wallet.name,
+                  style: Theme.of(context).textTheme.headline4,
+                ),
               ],
             ),
-            Text(wallet.totalBalance.toString()),
+            Text('\$${wallet.totalBalance.toString()}'),
           ],
         ),
       ),

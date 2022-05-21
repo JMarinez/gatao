@@ -12,10 +12,12 @@ Account dummyAccount = Account(
           id: "1",
           description: 'Netflix subscription',
           amount: '14.99',
+          icon: '',
           category: Category.subscription,
           type: Type.expense,
         )
       ],
+      icon: 'wallet',
       totalBalance: 0,
     ),
     Wallet(
@@ -25,10 +27,12 @@ Account dummyAccount = Account(
           id: "1",
           description: 'Netflix subscription',
           amount: '14.99',
+          icon: '',
           category: Category.subscription,
           type: Type.expense,
         )
       ],
+      icon: 'payment',
       totalBalance: 0,
     ),
     Wallet(
@@ -38,10 +42,12 @@ Account dummyAccount = Account(
           id: "1",
           description: 'Netflix subscription',
           amount: '14.99',
+          icon: '',
           category: Category.subscription,
           type: Type.expense,
         )
       ],
+      icon: 'paypal',
       totalBalance: 0,
     ),
   ],
