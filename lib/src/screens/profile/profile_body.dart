@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gatao/src/screens/account/account_screen.dart';
 
+import '../account/account_screen.dart';
 import 'profile_menu_item.dart';
 
 class ProfileBody extends StatelessWidget {
@@ -13,6 +13,7 @@ class ProfileBody extends StatelessWidget {
     return Container(
       child: Column(
         children: [
+          // TODO: Investigate if either menu options load from the DB or directly from the app code
           GestureDetector(
             child: const ProfileMenuItem(
               icon: 'account_balance',

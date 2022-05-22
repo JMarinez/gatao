@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gatao/src/components/icon_container.dart';
+
+import '../../components/icon_container.dart';
 
 class ProfileMenuItem extends StatelessWidget {
   final String icon;

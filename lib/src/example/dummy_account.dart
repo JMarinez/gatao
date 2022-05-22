@@ -1,6 +1,5 @@
-import 'package:gatao/src/models/transaccion.dart';
-import 'package:gatao/src/models/wallet.dart';
-
+import '../models/transaction.dart';
+import '../models/wallet.dart';
 import '../models/account.dart';
 
 Account dummyAccount = Account(

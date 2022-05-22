@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gatao/src/components/icon_container.dart';
-import 'package:gatao/src/util/utils.dart';
 
+import '../../components/icon_container.dart';
 import '../../models/wallet.dart';
 
 class AccountWalletCard extends StatelessWidget {

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:gatao/src/components/expense_card.dart';
-import 'package:gatao/src/models/services/expense_manager.dart';
-import 'package:gatao/src/screens/create_expense_screen.dart';
+
+import '../models/services/expense_manager.dart';
+import '../screens/create_expense_screen.dart';
+import '../components/expense_card.dart';
 
 class ActivityListScreen extends StatelessWidget {
   final ExpenseManager manager;

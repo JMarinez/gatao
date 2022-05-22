@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gatao/src/models/services/tab_manager.dart';
+
+import '../../models/services/tab_manager.dart';
 
 class BottomNavBarItem extends StatelessWidget {
   final String label;

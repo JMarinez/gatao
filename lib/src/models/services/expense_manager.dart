@@ -1,7 +1,7 @@
 import 'dart:collection';
-
 import 'package:flutter/material.dart';
-import 'package:gatao/src/models/transaccion.dart';
+
+import '../transaction.dart';
 
 class ExpenseManager extends ChangeNotifier {
   final _expenses = <Transaction>[];

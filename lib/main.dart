@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:gatao/src/models/services/expense_manager.dart';
-import 'package:gatao/src/models/services/tab_manager.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'home.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+import 'src/models/services/expense_manager.dart';
+import 'src/models/services/tab_manager.dart';
 import 'src/models/services/account_manager.dart';
+import 'home.dart';
 
 void main() {
   runApp(

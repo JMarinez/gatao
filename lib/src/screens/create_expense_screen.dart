@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:uuid/uuid.dart';
 
-import 'package:gatao/src/models/transaccion.dart';
+import '../models/transaction.dart';
 
 class CreateExpenseScreen extends StatefulWidget {
   final Function(Transaction) onCreate;

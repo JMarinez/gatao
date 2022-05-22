@@ -1,4 +1,4 @@
-import 'package:gatao/src/models/transaccion.dart';
+import 'transaction.dart';
 
 class Wallet {
   final String name;

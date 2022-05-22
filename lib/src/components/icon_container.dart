@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gatao/src/util/utils.dart';
+
+import '../../src/util/utils.dart';
 
 class IconContainer extends StatelessWidget {
   final String icon;

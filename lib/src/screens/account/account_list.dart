@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:gatao/src/components/account/account_wallet_card.dart';
-import 'package:gatao/src/models/services/account_manager.dart';
+
+import '../../models/services/account_manager.dart';
+import 'account_wallet_card.dart';
 
 class AccountList extends StatelessWidget {
   final AccountManager manager;

@@ -1,9 +1,8 @@
+import 'package:flutter/material.dart';
 import 'dart:collection';
 
-import 'package:flutter/material.dart';
-import 'package:gatao/src/example/dummy_account.dart';
-import 'package:gatao/src/models/wallet.dart';
-
+import '../../example/dummy_account.dart';
+import '../../models/wallet.dart';
 import '../account.dart';
 
 class AccountManager extends ChangeNotifier {

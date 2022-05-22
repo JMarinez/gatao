@@ -1,4 +1,4 @@
-import 'package:gatao/src/models/wallet.dart';
+import 'wallet.dart';
 
 class Account {
   final List<Wallet> wallets;
