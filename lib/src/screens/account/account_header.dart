@@ -27,7 +27,7 @@ class AccountHeader extends StatelessWidget {
                 ),
                 const SizedBox(height: 8.0),
                 Text(
-                  '\$9400',
+                  '\$0',
                   style: Theme.of(context).textTheme.headline1,
                 ),
               ],
