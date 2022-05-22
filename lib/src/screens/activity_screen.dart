@@ -20,19 +20,26 @@ class ActivityScreen extends StatelessWidget {
           manager: manager,
         );
       } else {
-        return Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12.0),
-              child: SvgPicture.asset(
-                'assets/payments.svg',
-                height: 300,
+        return Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                child: SvgPicture.asset(
+                  'assets/payments.svg',
+                  height: 300,
+                  placeholderBuilder: (context) {
+                    return CircularProgressIndicator(
+                        color: Theme.of(context).primaryColor);
+                  },
+                ),
               ),
-            ),
-            const Text('No recent activity', style: TextStyle(fontSize: 24.0)),
-            const Text('Tap the + to add your recent expenses!'),
-          ],
+              const Text('No recent activity',
+                  style: TextStyle(fontSize: 24.0)),
+              const Text('Tap the + to add your recent expenses!'),
+            ],
+          ),
         );
       }
     });
