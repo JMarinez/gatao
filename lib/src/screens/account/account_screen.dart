@@ -5,6 +5,8 @@ import 'package:provider/provider.dart';
 import 'package:gatao/src/components/account/account_header.dart';
 import 'package:gatao/src/models/services/account_manager.dart';
 
+import '../../components/long_bottom_button.dart';
+
 class AccountScreen extends StatelessWidget {
   const AccountScreen({Key? key}) : super(key: key);
 
@@ -36,23 +38,9 @@ class AccountScreen extends StatelessWidget {
             const SizedBox(height: 10.0),
             _buildAccountBody(),
             const Spacer(),
-            Container(
-              margin: const EdgeInsets.symmetric(horizontal: 15.0),
-              height: 55,
-              width: double.infinity,
-              child: Center(
-                child: Text(
-                  '+ Add new wallet',
-                  style: GoogleFonts.inter(
-                      color: Colors.white,
-                      fontSize: 18.0,
-                      fontWeight: FontWeight.bold),
-                ),
-              ),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15.0),
-                color: Theme.of(context).primaryColor,
-              ),
+            LongBottomButton(
+              onPressed: () {},
+              label: '+ Add new wallet',
             ),
             const SizedBox(height: 15.0),
           ],
