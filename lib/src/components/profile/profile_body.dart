@@ -35,7 +35,7 @@ class ProfileBody extends StatelessWidget {
           const ProfileMenuItem(
             icon: 'logout',
             label: 'Logout',
-            iconBackgroundColor: Colors.red,
+            iconBackgroundColor: Color(0xFFFFCDD2),
             iconColor: Colors.red,
           ),
         ],
