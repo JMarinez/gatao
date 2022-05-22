@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gatao/src/components/icon_container.dart';
 import 'package:gatao/src/util/utils.dart';
 
 import '../../models/wallet.dart';
@@ -18,19 +19,10 @@ class AccountWalletCard extends StatelessWidget {
           children: [
             Row(
               children: [
-                Container(
-                  height: 50.0,
-                  width: 50.0,
-                  child: Icon(
-                    Utils.parseIconData(wallet.icon),
-                    size: 32.0,
-                    color: Theme.of(context).primaryColor,
-                  ),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15.0),
-                    color: Colors.orange.shade100,
-                  ),
-                ),
+                IconContainer(
+                    icon: wallet.icon,
+                    iconColor: Theme.of(context).primaryColor,
+                    backgroundColor: Colors.orange.shade100),
                 const SizedBox(width: 10.0),
                 Text(
                   wallet.name,
