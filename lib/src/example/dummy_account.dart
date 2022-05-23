@@ -2,6 +2,22 @@ import '../models/transaction.dart';
 import '../models/wallet.dart';
 import '../models/account.dart';
 
+final List<String> banks = [
+  'ademi',
+  'apap',
+  'banesco',
+  'banreservas',
+  'bhd',
+  'caribe',
+  'cibao',
+  'citi',
+  'popular',
+  'promerica',
+  'santacruz',
+  'scotiabank',
+  'vimenca',
+];
+
 Account dummyAccount = Account(
   wallets: [
     // Wallet(
