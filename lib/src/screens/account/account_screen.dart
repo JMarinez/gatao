@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../components/flat_app_bar.dart';
 import '../../models/services/account_manager.dart';
 import '../../components/long_bottom_button.dart';
 import 'account_header.dart';
@@ -14,21 +15,13 @@ class AccountScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        title: Text(
-          'Account',
-          style: Theme.of(context).textTheme.bodyText2,
+      appBar: const PreferredSize(
+        preferredSize: Size.fromHeight(56.0),
+        child: FlatAppBar(
+          title: 'Account',
+          backgroundColor: Colors.white,
+          iconColor: Colors.black,
         ),
-        backgroundColor: Colors.white,
-        leading: IconButton(
-          icon: const Icon(
-            Icons.arrow_back,
-            color: Colors.black,
-          ),
-          onPressed: () => Navigator.pop(context),
-        ),
-        centerTitle: true,
-        elevation: 0,
       ),
       body: SizedBox(
         width: double.infinity,
