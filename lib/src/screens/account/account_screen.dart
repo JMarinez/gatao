@@ -33,25 +33,23 @@ class AccountScreen extends StatelessWidget {
             _buildAccountBody(),
             const Spacer(),
             LongBottomButton(
-              onPressed: () {
-                print('wallet');
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(
-                //     builder: (context) {
-                //       final manager =
-                //           Provider.of<AccountManager>(context, listen: false);
-                //       return CreateWalletScreen(
-                //         title: 'Add new wallet',
-                //         onCreate: (wallet) {
-                //           manager.addWallet(wallet);
-
-                //           Navigator.pop(context);
-                //         },
-                //       );
-                //     },
-                //   ),
-                // );
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      final manager =
+                          Provider.of<AccountManager>(context, listen: false);
+                      return CreateWalletScreen(
+                        title: 'Add new wallet',
+                        onCreate: (wallet) {
+                          manager.addWallet(wallet);
+                          Navigator.pop(context);
+                        },
+                      );
+                    },
+                  ),
+                );
               },
               label: '+ Add new wallet',
             ),
