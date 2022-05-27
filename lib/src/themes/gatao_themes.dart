@@ -7,19 +7,17 @@ import 'package:google_fonts/google_fonts.dart';
 
 class GataoTheme {
   static const Color primaryColor = Color(0xFFE65100);
-  static const Color lightAppBarTextColor = Color(0xFFFFFFFF);
-  static const Color darkAppBarTextColor = Color(0xFF000000);
 
-  static TextStyle headlineX = GoogleFonts.inter(
+  static TextStyle lightHeadlineX = GoogleFonts.inter(
     fontSize: 64.0,
-    fontWeight: FontWeight.bold,
+    fontWeight: FontWeight.w600,
     color: Colors.black,
   );
 
-  static TextStyle headlineGreyX = GoogleFonts.inter(
+  static TextStyle darkHeadlineX = GoogleFonts.inter(
     fontSize: 64.0,
-    fontWeight: FontWeight.bold,
-    color: Colors.grey,
+    fontWeight: FontWeight.w600,
+    color: Colors.white,
   );
 
   static TextStyle lightAppBarTitle = GoogleFonts.inter(
@@ -32,6 +30,12 @@ class GataoTheme {
     fontSize: 18.0,
     fontWeight: FontWeight.w600,
     color: Colors.white,
+  );
+
+  static TextStyle walletBalanceText = GoogleFonts.inter(
+    fontSize: 18.0,
+    fontWeight: FontWeight.w600,
+    color: Colors.orange.shade100,
   );
 
   static TextTheme lightTextTheme = TextTheme(

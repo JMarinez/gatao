@@ -34,11 +34,31 @@ class CreateWalletScreen extends StatelessWidget {
       ),
       backgroundColor: Theme.of(context).primaryColor,
       body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Spacer(),
-          const Text('Balance'),
-          TextField(),
+          Container(
+            margin: const EdgeInsets.only(left: 10.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('Balance', style: GataoTheme.walletBalanceText),
+                Row(
+                  children: [
+                    Text('\$', style: GataoTheme.darkHeadlineX),
+                    Flexible(
+                        flex: 9,
+                        child: TextField(
+                          style: GataoTheme.darkHeadlineX,
+                          autocorrect: false,
+                          cursorColor: Colors.white,
+                          decoration: null,
+                        )),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 10.0),
           Container(
             child: Column(
               children: [
@@ -53,8 +73,8 @@ class CreateWalletScreen extends StatelessWidget {
             decoration: const BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(15.0),
-                topRight: Radius.circular(15.0),
+                topLeft: Radius.circular(20.0),
+                topRight: Radius.circular(20.0),
               ),
             ),
           ),
