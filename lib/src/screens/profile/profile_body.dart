@@ -29,7 +29,7 @@ class ProfileBody extends StatelessWidget {
           ),
           const Divider(thickness: 1, height: 1, color: Colors.grey),
           const ProfileMenuItem(
-            icon: 'import_export',
+            icon: 'area_chart_outlined',
             label: 'Export Data',
           ),
           const Divider(thickness: 1, height: 1, color: Colors.grey),

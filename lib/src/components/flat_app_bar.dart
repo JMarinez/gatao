@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 
 class FlatAppBar extends StatelessWidget {
   final String title;
+  final TextStyle appBarTheme;
   final Color backgroundColor;
   final Color iconColor;
 
   const FlatAppBar({
     Key? key,
     required this.title,
+    required this.appBarTheme,
     required this.backgroundColor,
     required this.iconColor,
   }) : super(key: key);
@@ -17,13 +19,13 @@ class FlatAppBar extends StatelessWidget {
     return AppBar(
       title: Text(
         'Account',
-        style: Theme.of(context).textTheme.bodyText2,
+        style: appBarTheme,
       ),
-      backgroundColor: Colors.white,
+      backgroundColor: backgroundColor,
       leading: IconButton(
-        icon: const Icon(
+        icon: Icon(
           Icons.arrow_back,
-          color: Colors.black,
+          color: iconColor,
         ),
         onPressed: () => Navigator.pop(context),
       ),

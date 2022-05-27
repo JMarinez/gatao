@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gatao/src/themes/gatao_themes.dart';
 import 'package:provider/provider.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -27,40 +28,8 @@ class GataoApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Gatao',
         theme: ThemeData(
-          primaryColor: const Color(0xFFE65100),
-          textTheme: TextTheme(
-            headline1: GoogleFonts.inter(
-              fontSize: 36.0,
-              fontWeight: FontWeight.bold,
-              color: Colors.black,
-            ),
-            headline2: GoogleFonts.inter(
-              fontSize: 32.0,
-              fontWeight: FontWeight.bold,
-              color: Colors.black,
-            ),
-            headline3: GoogleFonts.inter(
-              fontSize: 24.0,
-              fontWeight: FontWeight.bold,
-              color: Colors.black,
-            ),
-            headline4: GoogleFonts.inter(
-              fontSize: 18.0,
-              fontWeight: FontWeight.bold,
-              color: Colors.black,
-            ),
-            subtitle1: GoogleFonts.inter(
-                fontSize: 14.0,
-                color: Colors.grey,
-                fontWeight: FontWeight.w500),
-            bodyText1: GoogleFonts.inter(
-              fontSize: 16.0,
-            ),
-            bodyText2: GoogleFonts.inter(
-              fontSize: 16.0,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
+          primaryColor: GataoTheme.primaryColor,
+          textTheme: GataoTheme.lightTextTheme,
         ),
         home: const Home(),
       ),

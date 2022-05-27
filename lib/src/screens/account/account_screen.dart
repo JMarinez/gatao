@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gatao/src/screens/account/create_wallet_screen.dart';
+import 'package:gatao/src/themes/gatao_themes.dart';
 import 'package:provider/provider.dart';
 
 import '../../components/flat_app_bar.dart';
@@ -16,10 +17,11 @@ class AccountScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: const PreferredSize(
-        preferredSize: Size.fromHeight(56.0),
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(56.0),
         child: FlatAppBar(
           title: 'Account',
+          appBarTheme: GataoTheme.lightAppBarTitle,
           backgroundColor: Colors.white,
           iconColor: Colors.black,
         ),
@@ -42,6 +44,7 @@ class AccountScreen extends StatelessWidget {
                           Provider.of<AccountManager>(context, listen: false);
                       return CreateWalletScreen(
                         title: 'Add new wallet',
+                        isUpdating: false,
                         onCreate: (wallet) {
                           manager.addWallet(wallet);
                           Navigator.pop(context);

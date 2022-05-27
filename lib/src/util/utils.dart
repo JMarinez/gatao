@@ -8,7 +8,7 @@ class Utils {
     'logout': Icons.logout,
     'account_balance': Icons.account_balance,
     'settings': Icons.settings,
-    'import_export': Icons.import_export
+    'area_chart_outlined': Icons.area_chart_outlined
   };
 
   static IconData parseIconData(String iconString) {
