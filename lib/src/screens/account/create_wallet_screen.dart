@@ -67,6 +67,9 @@ class CreateWalletScreen extends StatelessWidget {
                 LongBottomButton(
                   label: 'Continue',
                   onTap: () => print('Continue'),
+                ),
+                const SizedBox(
+                  height: 20.0,
                 )
               ],
             ),
