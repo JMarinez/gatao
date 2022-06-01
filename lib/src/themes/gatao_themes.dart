@@ -32,6 +32,11 @@ class GataoTheme {
     color: Colors.white,
   );
 
+  static TextStyle formLabelStyle = GoogleFonts.inter(
+    fontSize: 16.0,
+    color: Colors.grey,
+  );
+
   static TextStyle walletBalanceText = GoogleFonts.inter(
     fontSize: 18.0,
     fontWeight: FontWeight.w600,

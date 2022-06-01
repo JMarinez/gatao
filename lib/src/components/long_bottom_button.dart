@@ -4,17 +4,19 @@ import 'package:google_fonts/google_fonts.dart';
 class LongBottomButton extends StatelessWidget {
   final String label;
   final Function onTap;
+  final double? padding;
 
   const LongBottomButton({
     Key? key,
     required this.label,
     required this.onTap,
+    this.padding,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15.0),
+      padding: EdgeInsets.symmetric(horizontal: padding ?? 15.0),
       child: MaterialButton(
         splashColor: Colors.transparent,
         highlightColor: Colors.transparent,
