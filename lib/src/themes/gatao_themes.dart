@@ -76,6 +76,7 @@ class GataoTheme {
     ),
     bodyText1: GoogleFonts.inter(
       fontSize: 16.0,
+      color: Colors.black,
     ),
     bodyText2: GoogleFonts.inter(
       fontSize: 16.0,

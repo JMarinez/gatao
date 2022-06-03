@@ -5,6 +5,7 @@ class FlatAppBar extends StatelessWidget {
   final TextStyle appBarTheme;
   final Color backgroundColor;
   final Color iconColor;
+  final Function onTap;
 
   const FlatAppBar({
     Key? key,
@@ -12,6 +13,7 @@ class FlatAppBar extends StatelessWidget {
     required this.appBarTheme,
     required this.backgroundColor,
     required this.iconColor,
+    required this.onTap,
   }) : super(key: key);
 
   @override
@@ -27,7 +29,7 @@ class FlatAppBar extends StatelessWidget {
           Icons.arrow_back,
           color: iconColor,
         ),
-        onPressed: () => Navigator.pop(context),
+        onPressed: () => onTap(),
       ),
       centerTitle: true,
       elevation: 0,

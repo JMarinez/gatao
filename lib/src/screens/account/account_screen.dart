@@ -16,6 +16,7 @@ class AccountScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(56.0),
@@ -24,6 +25,7 @@ class AccountScreen extends StatelessWidget {
           appBarTheme: GataoTheme.lightAppBarTitle,
           backgroundColor: Colors.white,
           iconColor: Colors.black,
+          onTap: () => Navigator.pop(context),
         ),
       ),
       body: SizedBox(
@@ -31,7 +33,6 @@ class AccountScreen extends StatelessWidget {
         child: Column(
           children: [
             const AccountHeader(),
-            const SizedBox(height: 10.0),
             _buildAccountBody(),
             const Spacer(),
             LongBottomButton(

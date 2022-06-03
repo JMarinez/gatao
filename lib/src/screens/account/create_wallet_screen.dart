@@ -43,6 +43,15 @@ class _CreateWalletScreenState extends State<CreateWalletScreen> {
           appBarTheme: GataoTheme.darkAppBarTitle,
           backgroundColor: Theme.of(context).primaryColor,
           iconColor: Colors.white,
+          onTap: () {
+            FocusScopeNode currentFocus = FocusScope.of(context);
+
+            if (!currentFocus.hasPrimaryFocus) {
+              currentFocus.unfocus();
+            }
+
+            Navigator.pop(context);
+          },
         ),
       ),
       backgroundColor: Theme.of(context).primaryColor,
@@ -61,6 +70,7 @@ class _CreateWalletScreenState extends State<CreateWalletScreen> {
                     Flexible(
                       flex: 9,
                       child: TextField(
+                        keyboardType: TextInputType.number,
                         style: GataoTheme.darkHeadlineX,
                         autocorrect: false,
                         cursorColor: Colors.white,
@@ -81,11 +91,25 @@ class _CreateWalletScreenState extends State<CreateWalletScreen> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 15.0),
                   child: TextFormField(
+                    cursorColor: GataoTheme.primaryColor,
+                    autocorrect: false,
                     decoration: InputDecoration(
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(15.0)),
-                        labelText: 'Name',
-                        labelStyle: GataoTheme.formLabelStyle),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15.0),
+                        borderSide: const BorderSide(
+                          color: GataoTheme.primaryColor,
+                        ),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15.0),
+                        borderSide: const BorderSide(
+                          color: Colors.grey,
+                        ),
+                      ),
+                      labelText: 'Name',
+                      labelStyle: GataoTheme.formLabelStyle,
+                    ),
+                    style: GataoTheme.lightTextTheme.bodyText1,
                   ),
                 ),
                 const SizedBox(height: 10.0),
@@ -100,24 +124,21 @@ class _CreateWalletScreenState extends State<CreateWalletScreen> {
                     child: Padding(
                       padding: const EdgeInsets.only(left: 10.0),
                       child: DropdownButton(
-                        style: GataoTheme.formLabelStyle,
+                        style: GataoTheme.lightTextTheme.bodyText1,
                         underline: Container(),
-                        hint: const Text('Account Type'),
+                        hint: Text(
+                          'Account Type',
+                          style: GataoTheme.formLabelStyle,
+                        ),
                         isExpanded: true,
                         value: dropdownValue,
                         icon: const Icon(Icons.keyboard_arrow_down),
-                        // items: items.map((String items) {
-                        //   return DropdownMenuItem(
-                        //     value: items,
-                        //     child: Text(items),
-                        //   );
-                        // }).toList(),
-                        items: const <DropdownMenuItem<String>>[
-                          DropdownMenuItem(
-                            child: Text(''),
-                            value: '',
-                          )
-                        ],
+                        items: items.map((String items) {
+                          return DropdownMenuItem(
+                            value: items,
+                            child: Text(items),
+                          );
+                        }).toList(),
                         onChanged: (String? newValue) {
                           setState(() {
                             dropdownValue = newValue!;
