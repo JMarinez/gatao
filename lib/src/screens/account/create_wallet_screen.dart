@@ -25,7 +25,7 @@ class CreateWalletScreen extends StatefulWidget {
 }
 
 class _CreateWalletScreenState extends State<CreateWalletScreen> {
-  String dropdownValue = '';
+  String? dropdownValue;
 
   var items = [
     '',
@@ -59,13 +59,14 @@ class _CreateWalletScreenState extends State<CreateWalletScreen> {
                   children: [
                     Text('\$', style: GataoTheme.darkHeadlineX),
                     Flexible(
-                        flex: 9,
-                        child: TextField(
-                          style: GataoTheme.darkHeadlineX,
-                          autocorrect: false,
-                          cursorColor: Colors.white,
-                          decoration: null,
-                        )),
+                      flex: 9,
+                      child: TextField(
+                        style: GataoTheme.darkHeadlineX,
+                        autocorrect: false,
+                        cursorColor: Colors.white,
+                        decoration: null,
+                      ),
+                    ),
                   ],
                 ),
               ],
@@ -101,16 +102,22 @@ class _CreateWalletScreenState extends State<CreateWalletScreen> {
                       child: DropdownButton(
                         style: GataoTheme.formLabelStyle,
                         underline: Container(),
-                        hint: Text('Account Type'),
+                        hint: const Text('Account Type'),
                         isExpanded: true,
                         value: dropdownValue,
                         icon: const Icon(Icons.keyboard_arrow_down),
-                        items: items.map((String items) {
-                          return DropdownMenuItem(
-                            value: items,
-                            child: Text(items),
-                          );
-                        }).toList(),
+                        // items: items.map((String items) {
+                        //   return DropdownMenuItem(
+                        //     value: items,
+                        //     child: Text(items),
+                        //   );
+                        // }).toList(),
+                        items: const <DropdownMenuItem<String>>[
+                          DropdownMenuItem(
+                            child: Text(''),
+                            value: '',
+                          )
+                        ],
                         onChanged: (String? newValue) {
                           setState(() {
                             dropdownValue = newValue!;
