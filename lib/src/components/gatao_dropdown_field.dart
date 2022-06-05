@@ -3,12 +3,14 @@ import 'package:flutter/material.dart';
 import '../themes/gatao_themes.dart';
 
 class GataoDropdownField extends StatelessWidget {
+  final String hintText;
   final Function(String?) onChanged;
-  final String dropdownValue;
+  final String? dropdownValue;
   final List<String> items;
 
   const GataoDropdownField(
       {Key? key,
+      required this.hintText,
       required this.onChanged,
       required this.dropdownValue,
       required this.items})
@@ -30,7 +32,7 @@ class GataoDropdownField extends StatelessWidget {
             style: GataoTheme.lightTextTheme.bodyText1,
             underline: Container(),
             hint: Text(
-              'Account Type',
+              hintText,
               style: GataoTheme.formLabelStyle,
             ),
             isExpanded: true,
