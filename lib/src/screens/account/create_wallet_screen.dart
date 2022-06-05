@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:gatao/src/components/form_body.dart';
+import 'package:gatao/src/components/gatao_form_field.dart';
 import 'package:gatao/src/components/long_bottom_button.dart';
 import 'package:gatao/src/example/dummy_account.dart';
 
+import '../../components/balance_text_header.dart';
 import '../../components/flat_app_bar.dart';
 import '../../models/wallet.dart';
 import '../../themes/gatao_themes.dart';
@@ -58,60 +61,14 @@ class _CreateWalletScreenState extends State<CreateWalletScreen> {
       body: Column(
         children: [
           const Spacer(),
-          Container(
-            margin: const EdgeInsets.only(left: 10.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text('Balance', style: GataoTheme.walletBalanceText),
-                Row(
-                  children: [
-                    Text('\$', style: GataoTheme.darkHeadlineX),
-                    Flexible(
-                      flex: 9,
-                      child: TextField(
-                        keyboardType: TextInputType.number,
-                        style: GataoTheme.darkHeadlineX,
-                        autocorrect: false,
-                        cursorColor: Colors.white,
-                        decoration: null,
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
+          const BalanceTextHeader(title: 'Balance'),
           const SizedBox(height: 10.0),
-          Container(
-            child: Column(
+          FormBody(
+            body: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(height: 15.0),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 15.0),
-                  child: TextFormField(
-                    cursorColor: GataoTheme.primaryColor,
-                    autocorrect: false,
-                    decoration: InputDecoration(
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15.0),
-                        borderSide: const BorderSide(
-                          color: GataoTheme.primaryColor,
-                        ),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15.0),
-                        borderSide: const BorderSide(
-                          color: Colors.grey,
-                        ),
-                      ),
-                      labelText: 'Name',
-                      labelStyle: GataoTheme.formLabelStyle,
-                    ),
-                    style: GataoTheme.lightTextTheme.bodyText1,
-                  ),
-                ),
+                const GataoFormField(label: 'Name'),
                 const SizedBox(height: 10.0),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 15.0),
@@ -155,13 +112,6 @@ class _CreateWalletScreenState extends State<CreateWalletScreen> {
                 ),
                 const SizedBox(height: 15.0),
               ],
-            ),
-            decoration: const BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(20.0),
-                topRight: Radius.circular(20.0),
-              ),
             ),
           ),
         ],
