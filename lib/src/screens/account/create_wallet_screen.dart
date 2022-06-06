@@ -30,12 +30,28 @@ class CreateWalletScreen extends StatefulWidget {
 
 class _CreateWalletScreenState extends State<CreateWalletScreen> {
   String? dropdownValue;
+  final TextEditingController _balanceController = TextEditingController();
+  final TextEditingController _nameController = TextEditingController();
 
   var items = [
     '',
     'Wallet',
     'Bank',
   ];
+
+  @override
+  void initState() {
+    _balanceController.addListener(() {});
+    _nameController.addListener(() {});
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _balanceController.dispose();
+    _nameController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -49,11 +65,9 @@ class _CreateWalletScreenState extends State<CreateWalletScreen> {
           iconColor: Colors.white,
           onTap: () {
             FocusScopeNode currentFocus = FocusScope.of(context);
-
             if (!currentFocus.hasPrimaryFocus) {
               currentFocus.unfocus();
             }
-
             Navigator.pop(context);
           },
         ),
@@ -62,14 +76,20 @@ class _CreateWalletScreenState extends State<CreateWalletScreen> {
       body: Column(
         children: [
           const Spacer(),
-          const BalanceTextHeader(title: 'Balance'),
+          BalanceTextHeader(
+            title: 'Balance',
+            controller: _balanceController,
+          ),
           const SizedBox(height: 10.0),
           FormBody(
             body: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(height: 15.0),
-                const GataoFormField(label: 'Name'),
+                GataoFormField(
+                  label: 'Name',
+                  controller: _nameController,
+                ),
                 const SizedBox(height: 10.0),
                 GataoDropdownField(
                   hintText: 'Account Type',

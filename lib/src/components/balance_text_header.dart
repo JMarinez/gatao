@@ -4,7 +4,12 @@ import '../themes/gatao_themes.dart';
 
 class BalanceTextHeader extends StatelessWidget {
   final String title;
-  const BalanceTextHeader({Key? key, required this.title}) : super(key: key);
+  final TextEditingController controller;
+  const BalanceTextHeader({
+    Key? key,
+    required this.title,
+    required this.controller,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +25,7 @@ class BalanceTextHeader extends StatelessWidget {
               Flexible(
                 flex: 9,
                 child: TextField(
+                  controller: controller,
                   keyboardType: TextInputType.number,
                   style: GataoTheme.darkHeadlineX,
                   autocorrect: false,

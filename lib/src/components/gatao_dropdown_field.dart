@@ -8,13 +8,13 @@ class GataoDropdownField extends StatelessWidget {
   final String? dropdownValue;
   final List<String> items;
 
-  const GataoDropdownField(
-      {Key? key,
-      required this.hintText,
-      required this.onChanged,
-      required this.dropdownValue,
-      required this.items})
-      : super(key: key);
+  const GataoDropdownField({
+    Key? key,
+    required this.hintText,
+    required this.onChanged,
+    required this.dropdownValue,
+    required this.items,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
