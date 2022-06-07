@@ -32,6 +32,9 @@ class _CreateWalletScreenState extends State<CreateWalletScreen> {
   String? dropdownValue;
   final TextEditingController _balanceController = TextEditingController();
   final TextEditingController _nameController = TextEditingController();
+  String _balance = '';
+  String _name = '';
+  String _type = '';
 
   var items = [
     '',
@@ -41,8 +44,14 @@ class _CreateWalletScreenState extends State<CreateWalletScreen> {
 
   @override
   void initState() {
-    _balanceController.addListener(() {});
-    _nameController.addListener(() {});
+    _balanceController.addListener(() {
+      setState(() {
+        _balance = _balanceController.text;
+      });
+    });
+    _nameController.addListener(() {
+      _name = _nameController.text;
+    });
     super.initState();
   }
 
