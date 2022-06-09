@@ -2,7 +2,7 @@ import 'transaction.dart';
 
 class Wallet {
   final String name;
-  final List<Transaction> transacitons;
+  final List<Transaction>? transacitons;
   final String icon;
   final double totalBalance;
 

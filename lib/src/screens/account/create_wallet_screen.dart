@@ -113,7 +113,15 @@ class _CreateWalletScreenState extends State<CreateWalletScreen> {
                 const SizedBox(height: 10.0),
                 LongBottomButton(
                   label: 'Continue',
-                  onTap: () => print('Continue'),
+                  onTap: () {
+                    final _wallet = Wallet(
+                      name: _name,
+                      transacitons: null,
+                      icon: '',
+                      totalBalance: double.parse(_balance),
+                    );
+                    widget.onCreate!(_wallet);
+                  },
                 ),
                 const SizedBox(height: 15.0),
               ],
