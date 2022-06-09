@@ -30,7 +30,7 @@ class AccountWalletCard extends StatelessWidget {
               ],
             ),
             Text(
-              '\$${wallet.totalBalance.toString()}',
+              '\$${wallet.totalBalance % 1 == 0 ? wallet.totalBalance.toInt() : wallet.totalBalance.toStringAsFixed(2)}',
               style: Theme.of(context).textTheme.headline4,
             ),
           ],

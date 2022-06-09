@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
 class AccountHeader extends StatelessWidget {
-  const AccountHeader({Key? key}) : super(key: key);
+  final double totalBalance;
+  const AccountHeader({
+    Key? key,
+    required this.totalBalance,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +34,7 @@ class AccountHeader extends StatelessWidget {
               ),
               const SizedBox(height: 8.0),
               Text(
-                '\$0',
+                '\$${totalBalance % 1 == 0 ? totalBalance.toInt() : totalBalance.toStringAsFixed(2)}',
                 style: Theme.of(context).textTheme.headline1,
               ),
             ],

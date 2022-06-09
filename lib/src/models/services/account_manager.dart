@@ -11,6 +11,10 @@ class AccountManager extends ChangeNotifier {
 
   void addWallet(Wallet wallet) {
     dummyAccount.wallets.add(wallet);
+    final oldBalance = dummyAccount.totalBalance;
+    final newBalance = oldBalance + wallet.totalBalance;
+
+    dummyAccount.totalBalance = newBalance;
 
     notifyListeners();
   }

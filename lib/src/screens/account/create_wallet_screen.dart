@@ -117,7 +117,7 @@ class _CreateWalletScreenState extends State<CreateWalletScreen> {
                     final _wallet = Wallet(
                       name: _name,
                       transacitons: null,
-                      icon: '',
+                      icon: 'wallet',
                       totalBalance: double.parse(_balance),
                     );
                     widget.onCreate!(_wallet);

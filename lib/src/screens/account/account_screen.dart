@@ -32,7 +32,8 @@ class AccountScreen extends StatelessWidget {
         width: double.infinity,
         child: Column(
           children: [
-            const AccountHeader(),
+            _buildAccountHeader(),
+            const SizedBox(height: 10.0),
             _buildAccountBody(),
             const Spacer(),
             LongBottomButton(
@@ -62,6 +63,13 @@ class AccountScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Widget _buildAccountHeader() {
+    return Consumer<AccountManager>(
+        builder: ((context, manager, child) => AccountHeader(
+              totalBalance: manager.account.totalBalance,
+            )));
   }
 
   Widget _buildAccountBody() {

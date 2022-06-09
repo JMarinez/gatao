@@ -2,7 +2,7 @@ import 'wallet.dart';
 
 class Account {
   final List<Wallet> wallets;
-  final double totalBalance;
+  double totalBalance;
 
   Account({
     required this.wallets,
