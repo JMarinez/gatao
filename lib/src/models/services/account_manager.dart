@@ -10,17 +10,23 @@ class AccountManager extends ChangeNotifier {
   UnmodifiableListView get wallet => UnmodifiableListView(dummyAccount.wallets);
 
   void addWallet(Wallet wallet) {
-    dummyAccount.wallets.add(wallet);
     final oldBalance = dummyAccount.totalBalance;
     final newBalance = oldBalance + wallet.totalBalance;
 
+    dummyAccount.wallets.add(wallet);
     dummyAccount.totalBalance = newBalance;
 
     notifyListeners();
   }
 
   void updateWallet(Wallet wallet, int index) {
+    final oldBalance = dummyAccount.totalBalance;
+    final oldWalletBalance = dummyAccount.wallets[index].totalBalance;
+
+    final newBalance = oldBalance - oldWalletBalance + wallet.totalBalance;
+
     dummyAccount.wallets[index] = wallet;
+    dummyAccount.totalBalance = newBalance;
 
     notifyListeners();
   }
