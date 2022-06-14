@@ -120,7 +120,12 @@ class _CreateWalletScreenState extends State<CreateWalletScreen> {
                       icon: 'wallet',
                       totalBalance: double.parse(_balance),
                     );
-                    widget.onCreate!(_wallet);
+
+                    if (isUpdating) {
+                      widget.onUpdate!(_wallet);
+                    } else {
+                      widget.onCreate!(_wallet);
+                    }
                   },
                 ),
                 const SizedBox(height: 15.0),
