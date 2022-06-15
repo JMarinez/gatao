@@ -121,7 +121,7 @@ class _CreateWalletScreenState extends State<CreateWalletScreen> {
                       totalBalance: double.parse(_balance),
                     );
 
-                    if (isUpdating) {
+                    if (widget.isUpdating!) {
                       widget.onUpdate!(_wallet);
                     } else {
                       widget.onCreate!(_wallet);
