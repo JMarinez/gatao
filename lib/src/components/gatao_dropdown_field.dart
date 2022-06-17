@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:gatao/src/models/wallet.dart';
 
 import '../themes/gatao_themes.dart';
 
 class GataoDropdownField extends StatelessWidget {
   final String hintText;
-  final Function(String?) onChanged;
-  final String? dropdownValue;
-  final List<String> items;
+  final Function(WalletType?) onChanged;
+  final WalletType? dropdownValue;
+  final Map<String, WalletType> items;
 
   const GataoDropdownField({
     Key? key,
@@ -38,10 +39,10 @@ class GataoDropdownField extends StatelessWidget {
             isExpanded: true,
             value: dropdownValue,
             icon: const Icon(Icons.keyboard_arrow_down),
-            items: items.map((String items) {
+            items: items.entries.map((entry) {
               return DropdownMenuItem(
-                value: items,
-                child: Text(items),
+                value: entry.value,
+                child: Text(entry.key),
               );
             }).toList(),
             onChanged: onChanged,

@@ -1,5 +1,10 @@
 import 'transaction.dart';
 
+enum WalletType {
+  wallet,
+  bank,
+}
+
 class Wallet {
   final String name;
   final List<Transaction>? transacitons;

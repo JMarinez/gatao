@@ -14,33 +14,35 @@ class CreateWalletScreen extends StatefulWidget {
   final String title;
   final Function(Wallet)? onCreate;
   final Function(Wallet)? onUpdate;
+  final Wallet? originalItem;
   final bool? isUpdating;
 
   const CreateWalletScreen({
     Key? key,
     required this.title,
-    this.onCreate,
-    this.onUpdate,
-    this.isUpdating,
-  }) : super(key: key);
+    required this.onCreate,
+    required this.onUpdate,
+    this.originalItem,
+  })  : isUpdating = (originalItem != null),
+        super(key: key);
 
   @override
   State<CreateWalletScreen> createState() => _CreateWalletScreenState();
 }
 
 class _CreateWalletScreenState extends State<CreateWalletScreen> {
-  String? dropdownValue;
+  WalletType? dropdownValue;
+  bool showBankOptions = false;
   final TextEditingController _balanceController = TextEditingController();
   final TextEditingController _nameController = TextEditingController();
   String _balance = '';
   String _name = '';
   String _type = '';
 
-  var items = [
-    '',
-    'Wallet',
-    'Bank',
-  ];
+  var items = {
+    'Wallet': WalletType.wallet,
+    'Bank': WalletType.bank,
+  };
 
   @override
   void initState() {
@@ -104,12 +106,19 @@ class _CreateWalletScreenState extends State<CreateWalletScreen> {
                   hintText: 'Account Type',
                   dropdownValue: dropdownValue,
                   items: items,
-                  onChanged: (String? newValue) {
+                  onChanged: (WalletType? newValue) {
                     setState(() {
                       dropdownValue = newValue!;
+                      if (newValue == WalletType.bank) {
+                        showBankOptions = true;
+                      } else {
+                        showBankOptions = false;
+                      }
                     });
                   },
                 ),
+                const SizedBox(height: 10.0),
+                _showBankOptions(),
                 const SizedBox(height: 10.0),
                 LongBottomButton(
                   label: 'Continue',
@@ -135,5 +144,16 @@ class _CreateWalletScreenState extends State<CreateWalletScreen> {
         ],
       ),
     );
+  }
+
+  Widget _showBankOptions() {
+    if (showBankOptions) {
+      return Container(
+        height: 15,
+        color: Colors.red,
+      );
+    } else {
+      return Container();
+    }
   }
 }

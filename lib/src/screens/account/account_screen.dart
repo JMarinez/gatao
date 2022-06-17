@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gatao/src/models/wallet.dart';
 import 'package:gatao/src/screens/account/create_wallet_screen.dart';
 import 'package:gatao/src/themes/gatao_themes.dart';
 import 'package:provider/provider.dart';
@@ -46,11 +47,11 @@ class AccountScreen extends StatelessWidget {
                           Provider.of<AccountManager>(context, listen: false);
                       return CreateWalletScreen(
                         title: 'Add new wallet',
-                        isUpdating: false,
                         onCreate: (wallet) {
                           manager.addWallet(wallet);
                           Navigator.pop(context);
                         },
+                        onUpdate: (wallet) {},
                       );
                     },
                   ),
