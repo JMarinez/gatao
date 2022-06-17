@@ -4,6 +4,7 @@ import 'package:gatao/src/components/gatao_dropdown_field.dart';
 import 'package:gatao/src/components/gatao_form_field.dart';
 import 'package:gatao/src/components/long_bottom_button.dart';
 import 'package:gatao/src/example/dummy_account.dart';
+import 'package:gatao/src/screens/account/bank_options_form.dart';
 
 import '../../components/balance_text_header.dart';
 import '../../components/flat_app_bar.dart';
@@ -148,10 +149,7 @@ class _CreateWalletScreenState extends State<CreateWalletScreen> {
 
   Widget _showBankOptions() {
     if (showBankOptions) {
-      return Container(
-        height: 15,
-        color: Colors.red,
-      );
+      return const BankOptionsForm();
     } else {
       return Container();
     }

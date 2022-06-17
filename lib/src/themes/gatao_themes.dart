@@ -37,6 +37,9 @@ class GataoTheme {
     color: Colors.grey,
   );
 
+  static TextStyle bankOptionsLabelStyle = GoogleFonts.inter(
+      fontSize: 16.0, color: Colors.black, fontWeight: FontWeight.w500);
+
   static TextStyle walletBalanceText = GoogleFonts.inter(
     fontSize: 18.0,
     fontWeight: FontWeight.w600,
@@ -111,45 +114,4 @@ class GataoTheme {
       color: Colors.white,
     ),
   );
-
-  static ThemeData light() {
-    return ThemeData(
-      brightness: Brightness.light,
-      checkboxTheme: CheckboxThemeData(
-        fillColor: MaterialStateColor.resolveWith((states) {
-          return Colors.black;
-        }),
-      ),
-      appBarTheme: const AppBarTheme(
-        foregroundColor: Colors.black,
-        backgroundColor: Colors.white,
-      ),
-      floatingActionButtonTheme: const FloatingActionButtonThemeData(
-        foregroundColor: Colors.white,
-        backgroundColor: Colors.black,
-      ),
-      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-        selectedItemColor: Colors.green,
-      ),
-      textTheme: lightTextTheme,
-    );
-  }
-
-  static ThemeData dark() {
-    return ThemeData(
-      brightness: Brightness.dark,
-      appBarTheme: AppBarTheme(
-        foregroundColor: Colors.white,
-        backgroundColor: Colors.grey[900],
-      ),
-      floatingActionButtonTheme: const FloatingActionButtonThemeData(
-        foregroundColor: Colors.white,
-        backgroundColor: Colors.green,
-      ),
-      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-        selectedItemColor: Colors.green,
-      ),
-      textTheme: darkTextTheme,
-    );
-  }
 }
