@@ -30,7 +30,10 @@ class BalanceTextHeader extends StatelessWidget {
                   style: GataoTheme.darkHeadlineX,
                   autocorrect: false,
                   cursorColor: Colors.white,
-                  decoration: null,
+                  decoration: InputDecoration.collapsed(
+                    hintText: '0.00',
+                    hintStyle: GataoTheme.darkHeadlineX,
+                  ),
                 ),
               ),
             ],
