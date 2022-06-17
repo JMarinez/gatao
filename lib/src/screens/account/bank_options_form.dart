@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:gatao/src/components/bank_container.dart';
+import 'package:gatao/src/example/dummy_account.dart';
 import 'package:gatao/src/themes/gatao_themes.dart';
+
+import '../../components/gatao_icon_button.dart';
+import '../../util/utils.dart';
 
 class BankOptionsForm extends StatelessWidget {
   const BankOptionsForm({Key? key}) : super(key: key);
@@ -15,24 +20,20 @@ class BankOptionsForm extends StatelessWidget {
             style: GataoTheme.bankOptionsLabelStyle,
           ),
           const SizedBox(width: 10.0),
-          Container(
-            child: IconButton(
-              onPressed: () => print('Banks'),
-              icon: const Icon(Icons.add),
-              highlightColor: GataoTheme.primaryColor,
-              color: Colors.white,
-              constraints: const BoxConstraints(minHeight: 40, minWidth: 80),
-            ),
-            decoration: BoxDecoration(
-              color: GataoTheme.primaryColor,
-              borderRadius: BorderRadius.circular(10.0),
-            ),
+          GataoIconButton(
+            iconData: Icons.add,
+            onPressed: () => showDialog(
+                context: context,
+                builder: (context) => SimpleDialog(
+                      children: [
+                        const Text('Banks'),
+                        GridView.count(
+                          crossAxisCount: 3,
+                          children: Utils.bankContainers,
+                        )
+                      ],
+                    )),
           ),
-          // Container(
-          //   height: 40,
-          //   width: 80,
-          //   color: Colors.red,
-          // ),
         ],
       ),
     );
