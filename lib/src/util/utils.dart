@@ -35,7 +35,8 @@ class Utils {
   static List<Widget> bankContainers = banks
       .map((item) => BankContainer(
             child: Image.asset(
-              'assets/banks/$item',
+              'assets/$item',
+              fit: BoxFit.fitHeight,
             ),
           ))
       .toList();
