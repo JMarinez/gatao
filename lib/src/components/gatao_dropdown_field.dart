@@ -3,11 +3,11 @@ import 'package:gatao/src/models/wallet.dart';
 
 import '../themes/gatao_themes.dart';
 
-class GataoDropdownField extends StatelessWidget {
+class GataoDropdownField<T> extends StatelessWidget {
   final String hintText;
-  final Function(WalletType?) onChanged;
-  final WalletType? dropdownValue;
-  final Map<String, WalletType> items;
+  final Function(T?) onChanged;
+  final T? dropdownValue;
+  final Map<String, T> items;
 
   const GataoDropdownField({
     Key? key,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gatao/src/components/bank_container.dart';
+import 'package:gatao/src/components/gatao_dropdown_field.dart';
 import 'package:gatao/src/example/dummy_account.dart';
 import 'package:gatao/src/themes/gatao_themes.dart';
 
@@ -20,20 +21,25 @@ class BankOptionsForm extends StatelessWidget {
             style: GataoTheme.bankOptionsLabelStyle,
           ),
           const SizedBox(width: 10.0),
-          GataoIconButton(
-            iconData: Icons.add,
-            onPressed: () => showDialog(
-                context: context,
-                builder: (context) => SimpleDialog(
-                      children: [
-                        const Text('Banks'),
-                        GridView.count(
-                          crossAxisCount: 3,
-                          children: Utils.bankContainers,
-                        )
-                      ],
-                    )),
-          ),
+          // GataoDropdownField(
+          //     hintText: "Select a bank",
+          //     onChanged: onChanged,
+          //     dropdownValue: dropdownValue,
+          //     items: items),
+          // GataoIconButton(
+          //   iconData: Icons.add,
+          //   onPressed: () => showDialog(
+          //       context: context,
+          //       builder: (context) => SimpleDialog(
+          //             children: [
+          //               const Text('Banks'),
+          //               GridView.count(
+          //                 crossAxisCount: 3,
+          //                 children: Utils.bankContainers,
+          //               )
+          //             ],
+          //           )),
+          // ),
         ],
       ),
     );

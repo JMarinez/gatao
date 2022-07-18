@@ -70,19 +70,7 @@ class _CreateWalletScreenState extends State<CreateWalletScreen> {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(56.0),
-        child: FlatAppBar(
-          title: widget.title,
-          appBarTheme: GataoTheme.darkAppBarTitle,
-          backgroundColor: Theme.of(context).primaryColor,
-          iconColor: Colors.white,
-          onTap: () {
-            FocusScopeNode currentFocus = FocusScope.of(context);
-            if (!currentFocus.hasPrimaryFocus) {
-              currentFocus.unfocus();
-            }
-            Navigator.pop(context);
-          },
-        ),
+        child: appBar(context),
       ),
       backgroundColor: Theme.of(context).primaryColor,
       body: Column(
@@ -144,6 +132,22 @@ class _CreateWalletScreenState extends State<CreateWalletScreen> {
           ),
         ],
       ),
+    );
+  }
+
+  FlatAppBar appBar(BuildContext context) {
+    return FlatAppBar(
+      title: widget.title,
+      appBarTheme: GataoTheme.darkAppBarTitle,
+      backgroundColor: Theme.of(context).primaryColor,
+      iconColor: Colors.white,
+      onTap: () {
+        FocusScopeNode currentFocus = FocusScope.of(context);
+        if (!currentFocus.hasPrimaryFocus) {
+          currentFocus.unfocus();
+        }
+        Navigator.pop(context);
+      },
     );
   }
 
