@@ -40,9 +40,14 @@ class _CreateWalletScreenState extends State<CreateWalletScreen> {
   String _name = '';
   String _type = '';
 
+  // var items = {
+  //   'Wallet': WalletType.wallet,
+  //   'Bank': WalletType.bank,
+  // };
+
   var items = {
-    'Wallet': WalletType.wallet,
-    'Bank': WalletType.bank,
+    WalletType.wallet: 'Wallet',
+    WalletType.bank: 'Bank',
   };
 
   @override

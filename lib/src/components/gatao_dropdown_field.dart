@@ -7,7 +7,7 @@ class GataoDropdownField<T> extends StatelessWidget {
   final String hintText;
   final Function(T?) onChanged;
   final T? dropdownValue;
-  final Map<String, T> items;
+  final Map<T, String> items;
 
   const GataoDropdownField({
     Key? key,
@@ -41,8 +41,8 @@ class GataoDropdownField<T> extends StatelessWidget {
             icon: const Icon(Icons.keyboard_arrow_down),
             items: items.entries.map((entry) {
               return DropdownMenuItem(
-                value: entry.value,
-                child: Text(entry.key),
+                value: entry.key,
+                child: Text(entry.value),
               );
             }).toList(),
             onChanged: onChanged,
