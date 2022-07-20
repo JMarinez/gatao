@@ -7,41 +7,26 @@ import 'package:gatao/src/themes/gatao_themes.dart';
 import '../../components/gatao_icon_button.dart';
 import '../../util/utils.dart';
 
-class BankOptionsForm extends StatelessWidget {
+class BankOptionsForm extends StatefulWidget {
   const BankOptionsForm({Key? key}) : super(key: key);
 
   @override
+  State<BankOptionsForm> createState() => _BankOptionsFormState();
+}
+
+class _BankOptionsFormState extends State<BankOptionsForm> {
+  int? dropdownValue;
+  @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15.0),
-      child: Row(
-        children: [
-          Text(
-            'Bank',
-            style: GataoTheme.bankOptionsLabelStyle,
-          ),
-          const SizedBox(width: 10.0),
-          // GataoDropdownField(
-          //     hintText: "Select a bank",
-          //     onChanged: onChanged,
-          //     dropdownValue: dropdownValue,
-          //     items: items),
-          // GataoIconButton(
-          //   iconData: Icons.add,
-          //   onPressed: () => showDialog(
-          //       context: context,
-          //       builder: (context) => SimpleDialog(
-          //             children: [
-          //               const Text('Banks'),
-          //               GridView.count(
-          //                 crossAxisCount: 3,
-          //                 children: Utils.bankContainers,
-          //               )
-          //             ],
-          //           )),
-          // ),
-        ],
-      ),
+    return GataoDropdownField(
+      hintText: "Select a bank",
+      onChanged: (int? newValue) {
+        setState(() {
+          dropdownValue = newValue;
+        });
+      },
+      dropdownValue: dropdownValue,
+      items: Utils.bankStrings,
     );
   }
 }

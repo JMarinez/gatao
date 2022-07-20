@@ -28,20 +28,20 @@ class Utils {
     13: 'vimenca.png',
   };
 
-  static Map<String, int> bankStrings = {
-    'Banco Ademi': 1,
-    'Asociacion Popular de Ahorros y Prestamos': 2,
-    'Banesco': 3,
-    'Banresersar': 4,
-    'Banco BHD Leon': 5,
-    'Banco Caribe': 6,
-    'Asociacion Cibao de Ahorros y Prestamos': 7,
-    'Citibank': 8,
-    'Banco Popular Dominicano': 9,
-    'Banco Promerica': 10,
-    'Banco Santacruz': 11,
-    'Scotiabank': 12,
-    'Banco Vimenca': 13,
+  static Map<int, String> bankStrings = {
+    1: 'Banco Ademi',
+    2: 'Asociacion Popular de Ahorros y Prestamos',
+    3: 'Banesco',
+    4: 'Banreservas',
+    5: 'Banco BHD Leon',
+    6: 'Banco Caribe',
+    7: 'Asociacion Cibao de Ahorros y Prestamos',
+    8: 'Citibank',
+    9: 'Banco Popular Dominicano',
+    10: 'Banco Promerica',
+    11: 'Banco Santacruz',
+    12: 'Scotiabank',
+    13: 'Banco Vimenca'
   };
 
   static IconData parseIconData(String iconString) {
