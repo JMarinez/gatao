@@ -21,7 +21,7 @@ class BottomNavBarItem extends StatelessWidget {
     return MaterialButton(
       splashColor: Colors.transparent,
       highlightColor: Colors.transparent,
-      minWidth: 40.0,
+      // minWidth: 40.0,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

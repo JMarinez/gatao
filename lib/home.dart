@@ -38,39 +38,39 @@ class _HomeState extends State<Home> {
               child: SizedBox(
                 height: 60.0,
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Row(
-                      children: [
-                        BottomNavBarItem(
-                          label: 'Home',
-                          iconData: Icons.home,
-                          tabManager: tabManager,
-                          tabIndex: 0,
-                        ),
-                        BottomNavBarItem(
-                          label: 'Activity',
-                          iconData: Icons.payments,
-                          tabManager: tabManager,
-                          tabIndex: 1,
-                        ),
-                      ],
+                    Expanded(
+                      child: BottomNavBarItem(
+                        label: 'Home',
+                        iconData: Icons.home,
+                        tabManager: tabManager,
+                        tabIndex: 0,
+                      ),
                     ),
-                    Row(
-                      children: [
-                        BottomNavBarItem(
-                          label: 'Budget',
-                          iconData: Icons.pie_chart,
-                          tabManager: tabManager,
-                          tabIndex: 2,
-                        ),
-                        BottomNavBarItem(
-                          label: 'Profile',
-                          iconData: Icons.account_circle,
-                          tabManager: tabManager,
-                          tabIndex: 3,
-                        ),
-                      ],
+                    Expanded(
+                      child: BottomNavBarItem(
+                        label: 'Activity',
+                        iconData: Icons.payments,
+                        tabManager: tabManager,
+                        tabIndex: 1,
+                      ),
+                    ),
+                    Expanded(child: Container()),
+                    Expanded(
+                      child: BottomNavBarItem(
+                        label: 'Budget',
+                        iconData: Icons.pie_chart,
+                        tabManager: tabManager,
+                        tabIndex: 2,
+                      ),
+                    ),
+                    Expanded(
+                      child: BottomNavBarItem(
+                        label: 'Profile',
+                        iconData: Icons.account_circle,
+                        tabManager: tabManager,
+                        tabIndex: 3,
+                      ),
                     ),
                   ],
                 ),
