@@ -21,7 +21,7 @@ class BottomNavBarItem extends StatelessWidget {
     return MaterialButton(
       splashColor: Colors.transparent,
       highlightColor: Colors.transparent,
-      // minWidth: 40.0,
+      minWidth: 40.0,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -32,9 +32,11 @@ class BottomNavBarItem extends StatelessWidget {
           Text(
             label,
             style: TextStyle(
-                color: tabManager.selectedTab == tabIndex
-                    ? Theme.of(context).primaryColor
-                    : Colors.grey),
+              color: tabManager.selectedTab == tabIndex
+                  ? Theme.of(context).primaryColor
+                  : Colors.grey,
+              fontSize: 13.0,
+            ),
           ),
         ],
       ),
