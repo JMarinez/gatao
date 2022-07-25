@@ -32,13 +32,12 @@ class CreateWalletScreen extends StatefulWidget {
 }
 
 class _CreateWalletScreenState extends State<CreateWalletScreen> {
-  WalletType? dropdownValue;
   bool showBankOptions = false;
   final TextEditingController _balanceController = TextEditingController();
   final TextEditingController _nameController = TextEditingController();
   String _balance = '';
   String _name = '';
-  String _type = '';
+  WalletType? _walletType;
 
   // var items = {
   //   'Wallet': WalletType.wallet,
@@ -98,11 +97,11 @@ class _CreateWalletScreenState extends State<CreateWalletScreen> {
                 const SizedBox(height: 10.0),
                 GataoDropdownField(
                   hintText: 'Account Type',
-                  dropdownValue: dropdownValue,
+                  dropdownValue: _walletType,
                   items: items,
                   onChanged: (WalletType? newValue) {
                     setState(() {
-                      dropdownValue = newValue!;
+                      _walletType = newValue!;
                       if (newValue == WalletType.bank) {
                         showBankOptions = true;
                       } else {
@@ -119,6 +118,7 @@ class _CreateWalletScreenState extends State<CreateWalletScreen> {
                   onTap: () {
                     final _wallet = Wallet(
                       name: _name,
+                      type: _walletType,
                       transacitons: null,
                       icon: 'wallet',
                       totalBalance: double.parse(_balance),
