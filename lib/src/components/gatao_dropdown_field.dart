@@ -30,6 +30,7 @@ class GataoDropdownField<T> extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.only(left: 10.0),
           child: DropdownButton(
+            menuMaxHeight: 150.0,
             style: GataoTheme.lightTextTheme.bodyText1,
             underline: Container(),
             hint: Text(
