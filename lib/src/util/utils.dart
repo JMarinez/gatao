@@ -48,6 +48,10 @@ class Utils {
     return icons[iconString]!;
   }
 
+  static String? parseBankImage(int bankId) {
+    return banks[bankId];
+  }
+
   // static List<Widget> bankContainers = banks
   //     .map((item) => BankContainer(
   //           child: Image.asset(
