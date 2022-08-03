@@ -18,10 +18,15 @@ class AccountWalletCard extends StatelessWidget {
           children: [
             Row(
               children: [
-                IconContainer(
-                    icon: wallet.icon,
-                    iconColor: Theme.of(context).primaryColor,
-                    backgroundColor: Colors.orange.shade100),
+                wallet.type == WalletType.wallet
+                    ? IconContainer(
+                        icon: wallet.icon,
+                        iconColor: Theme.of(context).primaryColor,
+                        backgroundColor: Colors.orange.shade100)
+                    : Image.asset(
+                        'assets/${wallet.icon}',
+                        fit: BoxFit.fitHeight,
+                      ),
                 const SizedBox(width: 10.0),
                 Text(
                   wallet.name,

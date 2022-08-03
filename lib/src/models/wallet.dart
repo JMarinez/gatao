@@ -9,7 +9,7 @@ class Wallet {
   final String name;
   final WalletType? type;
   final List<Transaction>? transacitons;
-  final String icon;
+  final String? icon;
   final double totalBalance;
 
   Wallet({

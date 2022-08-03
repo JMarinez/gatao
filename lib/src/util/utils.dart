@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:gatao/src/components/bank_container.dart';
 
 class Utils {
   static Map<String, IconData> icons = {
@@ -44,11 +43,11 @@ class Utils {
     13: 'Banco Vimenca'
   };
 
-  static IconData parseIconData(String iconString) {
+  static IconData parseIconData(String? iconString) {
     return icons[iconString]!;
   }
 
-  static String? parseBankImage(int bankId) {
+  static String? parseBankImage(int? bankId) {
     return banks[bankId];
   }
 

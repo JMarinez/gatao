@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../src/util/utils.dart';
 
 class IconContainer extends StatelessWidget {
-  final String icon;
+  final String? icon;
   final Color? iconColor;
   final Color? backgroundColor;
 

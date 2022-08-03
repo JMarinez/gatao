@@ -5,6 +5,7 @@ import 'package:gatao/src/components/gatao_form_field.dart';
 import 'package:gatao/src/components/long_bottom_button.dart';
 import 'package:gatao/src/example/dummy_account.dart';
 import 'package:gatao/src/screens/account/bank_options_form.dart';
+import 'package:gatao/src/util/utils.dart';
 
 import '../../components/balance_text_header.dart';
 import '../../components/flat_app_bar.dart';
@@ -38,11 +39,7 @@ class _CreateWalletScreenState extends State<CreateWalletScreen> {
   String _balance = '';
   String _name = '';
   WalletType? _walletType;
-
-  // var items = {
-  //   'Wallet': WalletType.wallet,
-  //   'Bank': WalletType.bank,
-  // };
+  int? _bank;
 
   var items = {
     WalletType.wallet: 'Wallet',
@@ -120,7 +117,9 @@ class _CreateWalletScreenState extends State<CreateWalletScreen> {
                       name: _name,
                       type: _walletType,
                       transacitons: null,
-                      icon: 'wallet',
+                      icon: _walletType == WalletType.wallet
+                          ? 'wallet'
+                          : Utils.parseBankImage(_bank),
                       totalBalance: double.parse(_balance),
                     );
 
@@ -158,7 +157,16 @@ class _CreateWalletScreenState extends State<CreateWalletScreen> {
 
   Widget _showBankOptions() {
     if (showBankOptions) {
-      return const BankOptionsForm();
+      return GataoDropdownField(
+        hintText: "Select a bank",
+        onChanged: (int? newValue) {
+          setState(() {
+            _bank = newValue;
+          });
+        },
+        dropdownValue: _bank,
+        items: Utils.bankStrings,
+      );
     } else {
       return Container();
     }
