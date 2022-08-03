@@ -41,11 +41,6 @@ class _CreateWalletScreenState extends State<CreateWalletScreen> {
   WalletType? _walletType;
   int? _bank;
 
-  var items = {
-    WalletType.wallet: 'Wallet',
-    WalletType.bank: 'Bank',
-  };
-
   @override
   void initState() {
     _balanceController.addListener(() {
@@ -95,7 +90,7 @@ class _CreateWalletScreenState extends State<CreateWalletScreen> {
                 GataoDropdownField(
                   hintText: 'Account Type',
                   dropdownValue: _walletType,
-                  items: items,
+                  items: Utils.walletTypes,
                   onChanged: (WalletType? newValue) {
                     setState(() {
                       _walletType = newValue!;

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gatao/src/models/wallet.dart';
 
 class Utils {
   static Map<String, IconData> icons = {
@@ -41,6 +42,11 @@ class Utils {
     11: 'Banco Santacruz',
     12: 'Scotiabank',
     13: 'Banco Vimenca'
+  };
+
+  static Map<WalletType, String> walletTypes = {
+    WalletType.wallet: 'Wallet',
+    WalletType.bank: 'Bank',
   };
 
   static IconData parseIconData(String? iconString) {
