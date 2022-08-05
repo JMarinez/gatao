@@ -43,6 +43,13 @@ class _CreateWalletScreenState extends State<CreateWalletScreen> {
 
   @override
   void initState() {
+    _balanceController.text = (widget.isUpdating!
+        ? widget.originalItem?.totalBalance.toString()
+        : '')!;
+
+    _nameController.text =
+        (widget.isUpdating! ? widget.originalItem?.name.toString() : '')!;
+
     _balanceController.addListener(() {
       setState(() {
         _balance = _balanceController.text;
