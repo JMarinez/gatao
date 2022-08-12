@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../components/icon_container.dart';
 import '../../models/wallet.dart';
+import '../../../src/util/utils.dart';
 
 class AccountWalletCard extends StatelessWidget {
   final Wallet wallet;
@@ -9,58 +10,38 @@ class AccountWalletCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-        child: SizedBox(
-          height: 65,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    return SizedBox(
+      height: 65,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 15.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Row(
               children: [
-                Row(
-                  children: [
-                    wallet.type == WalletType.wallet
-                        ? IconContainer(
-                            icon: wallet.icon,
-                            iconColor: Theme.of(context).primaryColor,
-                            backgroundColor: Colors.orange.shade100)
-                        : Image.asset(
-                            'assets/${wallet.icon}',
-                            fit: BoxFit.fitHeight,
-                          ),
-                    const SizedBox(width: 10.0),
-                    Text(
-                      wallet.name,
-                      style: Theme.of(context).textTheme.headline4,
-                    ),
-                  ],
-                ),
+                wallet.type == WalletType.wallet
+                    ? IconContainer(
+                        icon: Icons.wallet,
+                        iconColor: Theme.of(context).primaryColor,
+                        backgroundColor: Colors.orange.shade100)
+                    : Image.asset(
+                        'assets/${Utils.parseBankImage(wallet.iconData)}',
+                        fit: BoxFit.fitHeight,
+                      ),
+                const SizedBox(width: 10.0),
                 Text(
-                  '\$${wallet.totalBalance % 1 == 0 ? wallet.totalBalance.toInt() : wallet.totalBalance.toStringAsFixed(2)}',
+                  wallet.name,
                   style: Theme.of(context).textTheme.headline4,
                 ),
               ],
             ),
-          ),
-        ),
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) {
-                final manager =
-                    Provider.of<AccountManager>(context, listen: false);
-                return CreateWalletScreen(
-                  title: 'Add new wallet',
-                  onCreate: (wallet) {
-                    manager.addWallet(wallet);
-                    Navigator.pop(context);
-                  },
-                  onUpdate: (wallet) {},
-                );
-              },
+            Text(
+              '\$${wallet.totalBalance % 1 == 0 ? wallet.totalBalance.toInt() : wallet.totalBalance.toStringAsFixed(2)}',
+              style: Theme.of(context).textTheme.headline4,
             ),
-          );
-        });
+          ],
+        ),
+      ),
+    );
   }
 }

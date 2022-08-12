@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../src/util/utils.dart';
 
 class IconContainer extends StatelessWidget {
-  final String? icon;
+  final IconData? icon;
   final Color? iconColor;
   final Color? backgroundColor;
 
@@ -19,7 +19,7 @@ class IconContainer extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(10.0),
       child: Icon(
-        Utils.parseIconData(icon),
+        icon,
         size: 32.0,
         color: iconColor ?? Theme.of(context).primaryColor,
       ),

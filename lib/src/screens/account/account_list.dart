@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:gatao/src/models/wallet.dart';
+import 'package:provider/provider.dart';
 
 import '../../models/services/account_manager.dart';
 import 'account_wallet_card.dart';
+import 'create_wallet_screen.dart';
 
 class AccountList extends StatelessWidget {
   final AccountManager manager;
@@ -19,8 +22,28 @@ class AccountList extends StatelessWidget {
         axisDirection: AxisDirection.down,
         child: ListView.separated(
           shrinkWrap: true,
-          itemBuilder: ((context, index) =>
-              AccountWalletCard(wallet: manager.wallet[index])),
+          itemBuilder: ((context, index) => GestureDetector(
+              child: AccountWalletCard(wallet: manager.wallet[index]),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      final manager =
+                          Provider.of<AccountManager>(context, listen: false);
+                      return CreateWalletScreen(
+                        title: 'Edit wallet',
+                        originalItem: manager.wallet[index],
+                        onCreate: (wallet) {},
+                        onUpdate: (wallet) {
+                          manager.updateWallet(wallet, index);
+                          Navigator.pop(context);
+                        },
+                      );
+                    },
+                  ),
+                );
+              })),
           separatorBuilder: (context, index) => const Divider(),
           itemCount: manager.wallet.length,
         ),

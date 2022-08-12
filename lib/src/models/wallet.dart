@@ -9,14 +9,14 @@ class Wallet {
   final String name;
   final WalletType? type;
   final List<Transaction>? transacitons;
-  final String? icon;
+  final int? iconData;
   final double totalBalance;
 
   Wallet({
     required this.name,
     required this.type,
     required this.transacitons,
-    required this.icon,
+    required this.iconData,
     required this.totalBalance,
   });
 
@@ -24,14 +24,14 @@ class Wallet {
     String? name,
     WalletType? type,
     List<Transaction>? transacitons,
-    String? icon,
+    int? iconData,
     double? totalBalance,
   }) {
     return Wallet(
         name: name ?? this.name,
         type: type ?? this.type,
         transacitons: transacitons ?? this.transacitons,
-        icon: icon ?? this.icon,
+        iconData: iconData ?? this.iconData,
         totalBalance: totalBalance ?? this.totalBalance);
   }
 }

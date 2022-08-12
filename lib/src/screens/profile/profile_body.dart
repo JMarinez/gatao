@@ -16,7 +16,7 @@ class ProfileBody extends StatelessWidget {
           // TODO: Investigate if either menu options load from the DB or directly from the app code
           GestureDetector(
             child: const ProfileMenuItem(
-              icon: 'account_balance',
+              icon: Icons.account_balance,
               label: 'Account',
             ),
             onTap: () => Navigator.push(context,
@@ -24,17 +24,17 @@ class ProfileBody extends StatelessWidget {
           ),
           const Divider(thickness: 1, height: 1, color: Colors.grey),
           const ProfileMenuItem(
-            icon: 'settings',
+            icon: Icons.settings,
             label: 'Settings',
           ),
           const Divider(thickness: 1, height: 1, color: Colors.grey),
           const ProfileMenuItem(
-            icon: 'area_chart_outlined',
+            icon: Icons.area_chart_outlined,
             label: 'Export Data',
           ),
           const Divider(thickness: 1, height: 1, color: Colors.grey),
           const ProfileMenuItem(
-            icon: 'logout',
+            icon: Icons.logout,
             label: 'Logout',
             iconBackgroundColor: Color(0xFFFFCDD2),
             iconColor: Colors.red,

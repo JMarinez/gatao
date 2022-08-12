@@ -15,7 +15,7 @@ class CreateWalletScreen extends StatefulWidget {
   final Function(Wallet)? onCreate;
   final Function(Wallet)? onUpdate;
   final Wallet? originalItem;
-  final bool? isUpdating;
+  final bool isUpdating;
 
   const CreateWalletScreen({
     Key? key,
@@ -41,17 +41,27 @@ class _CreateWalletScreenState extends State<CreateWalletScreen> {
 
   @override
   void initState() {
-    _balanceController.text = (widget.isUpdating!
-        ? widget.originalItem?.totalBalance.toString()
-        : '')!;
+    if (widget.isUpdating) {
+      _balanceController.text = (widget.isUpdating
+          ? widget.originalItem?.totalBalance.toString()
+          : '')!;
 
-    _nameController.text =
-        (widget.isUpdating! ? widget.originalItem?.name.toString() : '')!;
+      _nameController.text =
+          (widget.isUpdating ? widget.originalItem?.name.toString() : '')!;
+
+      _walletType = (widget.isUpdating ? widget.originalItem?.type : null);
+
+      if (_walletType != null && _walletType != WalletType.wallet) {
+        showBankOptions = true;
+        _bank = widget.originalItem!.iconData;
+      }
+    }
+
+    _balance = _balanceController.text;
+    _name = _nameController.text;
 
     _balanceController.addListener(() {
-      setState(() {
-        _balance = _balanceController.text;
-      });
+      _balance = _balanceController.text;
     });
     _nameController.addListener(() {
       _name = _nameController.text;
@@ -117,13 +127,11 @@ class _CreateWalletScreenState extends State<CreateWalletScreen> {
                       name: _name,
                       type: _walletType,
                       transacitons: null,
-                      icon: _walletType == WalletType.wallet
-                          ? 'wallet'
-                          : Utils.parseBankImage(_bank),
+                      iconData: _walletType == WalletType.wallet ? null : _bank,
                       totalBalance: double.parse(_balance),
                     );
 
-                    if (widget.isUpdating!) {
+                    if (widget.isUpdating) {
                       widget.onUpdate!(_wallet);
                     } else {
                       widget.onCreate!(_wallet);

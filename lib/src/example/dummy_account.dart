@@ -1,5 +1,3 @@
-import '../models/transaction.dart';
-import '../models/wallet.dart';
 import '../models/account.dart';
 
 final List<String> banks = [

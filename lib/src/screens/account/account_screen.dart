@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:gatao/src/models/wallet.dart';
 import 'package:gatao/src/screens/account/create_wallet_screen.dart';
 import 'package:gatao/src/themes/gatao_themes.dart';
 import 'package:provider/provider.dart';

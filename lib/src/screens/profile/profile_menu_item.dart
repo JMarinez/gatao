@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../components/icon_container.dart';
 
 class ProfileMenuItem extends StatelessWidget {
-  final String icon;
+  final IconData icon;
   final String label;
   final Color? iconColor;
   final Color? iconBackgroundColor;
