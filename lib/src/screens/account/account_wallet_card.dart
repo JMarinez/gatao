@@ -9,38 +9,58 @@ class AccountWalletCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 65,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 15.0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Row(
+    return GestureDetector(
+        child: SizedBox(
+          height: 65,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                wallet.type == WalletType.wallet
-                    ? IconContainer(
-                        icon: wallet.icon,
-                        iconColor: Theme.of(context).primaryColor,
-                        backgroundColor: Colors.orange.shade100)
-                    : Image.asset(
-                        'assets/${wallet.icon}',
-                        fit: BoxFit.fitHeight,
-                      ),
-                const SizedBox(width: 10.0),
+                Row(
+                  children: [
+                    wallet.type == WalletType.wallet
+                        ? IconContainer(
+                            icon: wallet.icon,
+                            iconColor: Theme.of(context).primaryColor,
+                            backgroundColor: Colors.orange.shade100)
+                        : Image.asset(
+                            'assets/${wallet.icon}',
+                            fit: BoxFit.fitHeight,
+                          ),
+                    const SizedBox(width: 10.0),
+                    Text(
+                      wallet.name,
+                      style: Theme.of(context).textTheme.headline4,
+                    ),
+                  ],
+                ),
                 Text(
-                  wallet.name,
+                  '\$${wallet.totalBalance % 1 == 0 ? wallet.totalBalance.toInt() : wallet.totalBalance.toStringAsFixed(2)}',
                   style: Theme.of(context).textTheme.headline4,
                 ),
               ],
             ),
-            Text(
-              '\$${wallet.totalBalance % 1 == 0 ? wallet.totalBalance.toInt() : wallet.totalBalance.toStringAsFixed(2)}',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
+          ),
         ),
-      ),
-    );
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) {
+                final manager =
+                    Provider.of<AccountManager>(context, listen: false);
+                return CreateWalletScreen(
+                  title: 'Add new wallet',
+                  onCreate: (wallet) {
+                    manager.addWallet(wallet);
+                    Navigator.pop(context);
+                  },
+                  onUpdate: (wallet) {},
+                );
+              },
+            ),
+          );
+        });
   }
 }
