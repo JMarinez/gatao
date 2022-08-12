@@ -3,8 +3,6 @@ import 'package:gatao/src/components/form_body.dart';
 import 'package:gatao/src/components/gatao_dropdown_field.dart';
 import 'package:gatao/src/components/gatao_form_field.dart';
 import 'package:gatao/src/components/long_bottom_button.dart';
-import 'package:gatao/src/example/dummy_account.dart';
-import 'package:gatao/src/screens/account/bank_options_form.dart';
 import 'package:gatao/src/util/utils.dart';
 
 import '../../components/balance_text_header.dart';
